@@ -1,0 +1,97 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Planning Center
+providerId: planning-center
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Church Management
+- ChMS
+- Giving
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Planning Center spend. The API itself is free - there is no
+  metered charge for API calls, tokens, or webhooks. Cost is driven by the product
+  subscriptions the account carries. People is free. Services, Groups, Check-Ins,
+  Calendar, Registrations, and Publishing are each a separate monthly subscription
+  that scales by the number of people in the account. Giving carries no monthly
+  software fee but charges a per-transaction processing fee on donations. Because
+  most spend tracks people-count tiers and Giving transaction volume rather than
+  API usage, cost management is about right-sizing which products are active and
+  the account's people count, not about throttling API calls.
+notes: >-
+  Per-tier dollar amounts, people-count thresholds, and the Giving processing rate
+  are not reconciled here; verify on the Planning Center pricing page. The API adds
+  no incremental cost, so integrating more deeply does not raise the bill - only
+  activating more products or growing people count / donation volume does.
+sources:
+- https://www.planningcenter.com/pricing
+- https://www.planningcenter.com/developers
+- https://developer.planning.center/docs/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Planning Center
+serviceCategory: Church Management Software
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: Planning Center
+  ServiceCategory: Church Management Software
+  ProviderName: Planning Center
+  PublisherName: Planning Center
+  InvoiceIssuerName: Planning Center
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription
+meters:
+- name: product_subscription
+  description: Monthly subscription for each active product, tiered by people count.
+  unit: subscription
+  aggregation: sum
+  dimensions:
+  - account
+  - product
+  - people_count_tier
+- name: giving_transactions
+  description: Per-transaction processing fee on donations processed through Giving.
+  unit: transactions
+  aggregation: sum
+  dimensions:
+  - account
+  - fund
+  - payment_source
+- name: api_requests
+  description: API calls made against the products; no charge, tracked for capacity/rate-limit visibility only.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - user
+  - product
+principles:
+- name: Visibility
+  description: Track which products are active and the account's people count, plus monthly Giving transaction volume - these drive the bill, not API usage.
+- name: Allocation
+  description: Attribute product subscriptions and Giving fees to ministries or campuses; API calls carry no cost to allocate.
+- name: Optimization
+  description: Deactivate unused products, keep the people database clean so people-count tiers are accurate, and consolidate donation processing to manage per-transaction fees.
+- name: Accountability
+  description: Review active product subscriptions and people-count tier at renewal; the free API means deeper integration does not increase spend.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

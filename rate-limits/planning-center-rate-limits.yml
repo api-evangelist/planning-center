@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Planning Center
+providerId: planning-center
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Church Management
+- ChMS
+- Rate Limiting
+- Quotas
+description: >-
+  Planning Center enforces a documented rate limit of 100 requests per 20 seconds
+  per authenticated user, applied across all products under
+  https://api.planningcenteronline.com. Requests that page with a high offset
+  (above 30,000) are subject to a stricter limit of 75 requests per 20 seconds.
+  Every response returns headers describing the current window, and Planning
+  Center notes that limits can be adjusted dynamically without notice, so clients
+  should read the headers rather than hardcode the numbers. Exceeding the limit
+  returns HTTP 429 with a Retry-After header.
+notes: >-
+  Read X-PCO-API-Request-Rate-Limit, X-PCO-API-Request-Rate-Period, and
+  X-PCO-API-Request-Rate-Count from every response to track remaining budget, and
+  honor Retry-After on 429. Because the limit is per authenticated user, an OAuth
+  integration serving many organizations gets an independent budget per connected
+  user/token.
+sources:
+- https://api.planningcenteronline.com/docs/overview/rate-limiting
+- https://developer.planning.center/docs/
+responseCodes:
+  throttled: 429
+limits:
+- name: Default Request Rate
+  scope: user
+  metric: requests
+  limit: 100 per 20 seconds
+  notes: Standard per-authenticated-user limit across all products.
+- name: High-Offset Request Rate
+  scope: user
+  metric: requests
+  limit: 75 per 20 seconds
+  notes: Applies to requests using an offset above 30,000.
+headers:
+- name: X-PCO-API-Request-Rate-Limit
+  description: Maximum number of requests allowed in the current period.
+- name: X-PCO-API-Request-Rate-Period
+  description: Length of the rate limit window, in seconds.
+- name: X-PCO-API-Request-Rate-Count
+  description: Number of requests made so far in the current period.
+- name: Retry-After
+  description: On a 429 response, the number of seconds to wait before retrying.
+policies:
+- name: Read the Headers
+  description: Limits can change dynamically without notice; clients should read the rate-limit headers on every response rather than hardcoding 100/20s.
+- name: Backoff on 429
+  description: On HTTP 429, wait for the number of seconds in the Retry-After header before retrying, ideally with exponential backoff and jitter.
+- name: Avoid Deep Offsets
+  description: Prefer filtering (where[]) and following pagination links over very high offsets, which trigger the stricter 75/20s limit.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

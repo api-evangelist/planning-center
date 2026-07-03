@@ -1,0 +1,125 @@
+aid: planning-center
+name: Planning Center
+review:
+  question: Does Planning Center expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Planning Center's public surface is
+    request/response REST over HTTPS (JSON:API 1.0) across all products, plus an
+    outbound Webhooks product that POSTs event payloads to a subscriber URL.
+    Webhook delivery is server-to-endpoint HTTP, not a server-push transport on
+    Planning Center's own API (no WebSocket and no client-facing SSE stream to
+    model), so there is nothing in scope for an AsyncAPI document.
+findings:
+  summary: |
+    Planning Center does not publish a documented public WebSocket API. Planning
+    Center is a suite of church management products (People, Services, Giving,
+    Groups, Check-Ins, Calendar, Registrations, Publishing). Each product exposes
+    a REST API under the shared host https://api.planningcenteronline.com, with
+    per-product path prefixes such as /people/v2, /services/v2, and /giving/v2.
+    All responses conform to the JSON:API 1.0 specification and are authenticated
+    with HTTP Basic (Personal Access Token) or OAuth 2.0. Real-time notification
+    is delivered by the Webhooks product, which sends outbound HTTPS POST requests
+    to a subscriber-configured URL when records are created, updated, or destroyed
+    - this is a webhook (server-to-endpoint HTTP callback), not a WebSocket. No
+    realtime, bidirectional, or streaming WebSocket (ws:// or wss://) endpoint is
+    documented anywhere in Planning Center's API reference as of the review date.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.planningcenteronline.com
+      documented: true
+      note: JSON:API 1.0 over HTTPS for all products; per-product prefixes like /people/v2, /services/v2, /giving/v2.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: The Webhooks product POSTs create/update/destroy event payloads to a subscriber URL. Outbound HTTP callback, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in any Planning Center product API reference as of the review date.
+  authentication: |
+    Two documented methods. Personal Access Token via HTTP Basic auth (application
+    id as username, secret as password) for single-account scripts. OAuth 2.0
+    (authorization code, PKCE recommended; OpenID Connect supported) for
+    multi-organization applications, with per-product scopes: people, services,
+    giving, groups, check_ins, calendar, registrations, publishing. Tokens expire
+    after 2 hours and are refreshed with a refresh token. A User-Agent header is
+    required on every request.
+  rateLimits: |
+    100 requests per 20 seconds per authenticated user (75 per 20 seconds for
+    requests with an offset above 30,000). HTTP 429 on exceed, with Retry-After
+    and X-PCO-API-Request-Rate-* headers on responses.
+  endpointsConfirmedRest:
+    - GET  https://api.planningcenteronline.com/people/v2/people
+    - GET  https://api.planningcenteronline.com/people/v2/emails
+    - GET  https://api.planningcenteronline.com/services/v2/service_types
+    - GET  https://api.planningcenteronline.com/services/v2/songs
+    - GET  https://api.planningcenteronline.com/services/v2/teams
+    - GET  https://api.planningcenteronline.com/giving/v2/donations
+    - GET  https://api.planningcenteronline.com/giving/v2/funds
+    - GET  https://api.planningcenteronline.com/giving/v2/batches
+    - GET  https://api.planningcenteronline.com/giving/v2/payment_sources
+    - GET  https://api.planningcenteronline.com/registrations/v2/events
+  endpointsModeledRest:
+    - POST   https://api.planningcenteronline.com/people/v2/people
+    - PATCH  https://api.planningcenteronline.com/people/v2/people/{id}
+    - GET    https://api.planningcenteronline.com/people/v2/households
+    - GET    https://api.planningcenteronline.com/services/v2/service_types/{service_type_id}/plans
+    - POST   https://api.planningcenteronline.com/giving/v2/donations
+    - POST   https://api.planningcenteronline.com/giving/v2/donations/{id}/issue_refund
+    - GET    https://api.planningcenteronline.com/groups/v2/groups
+    - GET    https://api.planningcenteronline.com/groups/v2/group_types
+    - GET    https://api.planningcenteronline.com/check-ins/v2/check_ins
+    - GET    https://api.planningcenteronline.com/check-ins/v2/events
+    - GET    https://api.planningcenteronline.com/calendar/v2/events
+    - GET    https://api.planningcenteronline.com/calendar/v2/resources
+    - GET    https://api.planningcenteronline.com/registrations/v2/signups
+    - GET    https://api.planningcenteronline.com/publishing/v2/channels
+    - GET    https://api.planningcenteronline.com/publishing/v2/series
+    - GET    https://api.planningcenteronline.com/webhooks/v2/subscriptions
+    - POST   https://api.planningcenteronline.com/webhooks/v2/subscriptions
+    - GET    https://api.planningcenteronline.com/webhooks/v2/available_events
+  note: |
+    Confirmed endpoints have their exact path/resource verified against Planning
+    Center's documentation and community guides. Modeled endpoints use confirmed
+    product base paths and documented resource names, with representative CRUD
+    method/path shapes; consult the live reference at developer.planning.center
+    for the authoritative, exhaustive endpoint list and per-resource attributes.
+sources:
+  - url: https://developer.planning.center/docs/
+    type: Documentation
+    note: Central developer docs and API Explorer for all products; SPA reference.
+  - url: https://api.planningcenteronline.com/docs/overview/authentication
+    type: Documentation
+    note: OAuth 2.0 (authorize/token URLs, product scopes, PKCE/OIDC) and Personal Access Token via HTTP Basic.
+  - url: https://api.planningcenteronline.com/docs/overview/rate-limiting
+    type: Documentation
+    note: 100 req/20s per user (75/20s for offset >30,000); 429 + Retry-After and X-PCO-API-Request-Rate-* headers.
+  - url: https://github.com/planningcenter/developers
+    type: SourceCode
+    note: Official API docs, guides, and support repo; confirms base host and JSON:API 1.0.
+  - url: https://github.com/planningcenter/developers/blob/main/guides/giving_donations_integration.md
+    type: Documentation
+    note: Giving integration guide - donations, designations, funds, batches, payment sources, refunds.
+  - url: https://www.planningcenter.com/changelog/publishing/25080772906139-new-publishing-sermons-api
+    type: Documentation
+    note: Publishing Sermons API - read-only channels, series, episodes, speakers.
+  - url: https://www.planningcenter.com/blog/2017/09/webhooks
+    type: Documentation
+    note: Webhooks deliver create/update/destroy events as outbound HTTPS POST, not WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Planning Center's own public API is
+    request/response REST (JSON:API 1.0) across its products, and real-time
+    delivery is via outbound webhook HTTP callbacks. No AsyncAPI document was
+    created because there is no client-facing server-push transport (WebSocket or
+    SSE) on Planning Center's own API to model.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

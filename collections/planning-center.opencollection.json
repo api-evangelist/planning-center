@@ -1,0 +1,252 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center API",
+    "version": "2.0",
+    "description": "Representative Open Collection for the Planning Center suite of church management APIs - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing, and Webhooks. Shared base host https://api.planningcenteronline.com with per-product path prefixes. All responses are JSON:API 1.0. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or an OAuth 2.0 bearer token. Rate limit: 100 requests per 20 seconds per user."
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{applicationId}}",
+      "password": "{{secret}}"
+    },
+    "headers": [
+      { "name": "User-Agent", "value": "apis-io" }
+    ]
+  },
+  "items": [
+    {
+      "info": { "name": "People", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List people", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/people/v2/people" },
+          "docs": "Lists people in the account."
+        },
+        {
+          "info": { "name": "Get a person", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/people/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The person ID." }]
+          },
+          "docs": "Retrieves a single person by ID."
+        },
+        {
+          "info": { "name": "Create a person", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/people/v2/people",
+            "body": { "type": "json", "data": "{\"data\":{\"type\":\"Person\",\"attributes\":{\"first_name\":\"Jane\",\"last_name\":\"Doe\"}}}" }
+          },
+          "docs": "Creates a person (JSON:API document)."
+        },
+        {
+          "info": { "name": "List emails", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/people/v2/emails" },
+          "docs": "Lists email addresses across the account."
+        },
+        {
+          "info": { "name": "List households", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/people/v2/households" },
+          "docs": "Lists households."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Services", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List service types", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/services/v2/service_types" },
+          "docs": "Lists service types."
+        },
+        {
+          "info": { "name": "List plans for a service type", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/service_types/:service_type_id/plans",
+            "params": [{ "name": "service_type_id", "value": "", "type": "path", "description": "The service type ID." }]
+          },
+          "docs": "Lists plans within a service type."
+        },
+        {
+          "info": { "name": "List songs", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/services/v2/songs" },
+          "docs": "Lists songs."
+        },
+        {
+          "info": { "name": "List teams", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/services/v2/teams" },
+          "docs": "Lists teams."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Giving", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List donations", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/giving/v2/donations" },
+          "docs": "Lists donations."
+        },
+        {
+          "info": { "name": "Create a donation", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/giving/v2/donations",
+            "body": { "type": "json", "data": "{\"data\":{\"type\":\"Donation\",\"attributes\":{\"amount_cents\":5000,\"amount_currency\":\"USD\",\"received_at\":\"2026-07-03\"}}}" }
+          },
+          "docs": "Creates a donation with its designations and payment source."
+        },
+        {
+          "info": { "name": "List funds", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/giving/v2/funds" },
+          "docs": "Lists funds."
+        },
+        {
+          "info": { "name": "List batches", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/giving/v2/batches" },
+          "docs": "Lists batches."
+        },
+        {
+          "info": { "name": "List payment sources", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/giving/v2/payment_sources" },
+          "docs": "Lists payment sources."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Groups", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List groups", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/groups/v2/groups" },
+          "docs": "Lists groups."
+        },
+        {
+          "info": { "name": "List group types", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/groups/v2/group_types" },
+          "docs": "Lists group types."
+        },
+        {
+          "info": { "name": "List memberships for a group", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/groups/v2/groups/:group_id/memberships",
+            "params": [{ "name": "group_id", "value": "", "type": "path", "description": "The group ID." }]
+          },
+          "docs": "Lists members of a group."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Check-Ins", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List check-ins", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/check-ins/v2/check_ins" },
+          "docs": "Lists check-ins."
+        },
+        {
+          "info": { "name": "List check-in events", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/check-ins/v2/events" },
+          "docs": "Lists check-in events."
+        },
+        {
+          "info": { "name": "List locations", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/check-ins/v2/locations" },
+          "docs": "Lists check-in locations."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Calendar", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List calendar events", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/calendar/v2/events" },
+          "docs": "Lists calendar events."
+        },
+        {
+          "info": { "name": "List event instances", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/calendar/v2/event_instances" },
+          "docs": "Lists event instances."
+        },
+        {
+          "info": { "name": "List resources", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/calendar/v2/resources" },
+          "docs": "Lists rooms and equipment resources."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Registrations", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List signups", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/registrations/v2/signups" },
+          "docs": "Lists signups (registration events)."
+        },
+        {
+          "info": { "name": "List attendees for a signup", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/registrations/v2/signups/:signup_id/attendees",
+            "params": [{ "name": "signup_id", "value": "", "type": "path", "description": "The signup ID." }]
+          },
+          "docs": "Lists attendees for a signup."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Publishing", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List channels", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/publishing/v2/channels" },
+          "docs": "Lists sermon channels (read-only)."
+        },
+        {
+          "info": { "name": "List episodes for a channel", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/publishing/v2/channels/:channel_id/episodes",
+            "params": [{ "name": "channel_id", "value": "", "type": "path", "description": "The channel ID." }]
+          },
+          "docs": "Lists episodes within a channel."
+        },
+        {
+          "info": { "name": "List series", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/publishing/v2/series" },
+          "docs": "Lists sermon series."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Webhooks", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List subscriptions", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/webhooks/v2/subscriptions" },
+          "docs": "Lists webhook subscriptions."
+        },
+        {
+          "info": { "name": "Create a subscription", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/webhooks/v2/subscriptions",
+            "body": { "type": "json", "data": "{\"data\":{\"type\":\"Subscription\",\"attributes\":{\"name\":\"people.v2.events.person.created\",\"url\":\"https://example.com/webhooks/pco\",\"active\":true}}}" }
+          },
+          "docs": "Subscribes to an available event; deliveries are outbound HTTPS POST."
+        },
+        {
+          "info": { "name": "List available events", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.planningcenteronline.com/webhooks/v2/available_events" },
+          "docs": "Lists the catalog of subscribable events across products."
+        }
+      ]
+    }
+  ]
+}

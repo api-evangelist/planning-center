@@ -1,0 +1,145 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Planning Center
+providerId: planning-center
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Church Management
+- ChMS
+- Giving
+- Events
+- Plans
+description: >-
+  Planning Center's API is free to use with an active Planning Center account -
+  there is no separate charge for API access, and both Personal Access Tokens and
+  OAuth applications are available at no cost. What you pay for is the products
+  themselves. Planning Center prices each product (People, Services, Giving,
+  Groups, Check-Ins, Calendar, Registrations, Publishing) as a separate
+  subscription. People is free. Most other products have a free starter tier and
+  then scale in monthly price by the number of people in the account. Giving has
+  no monthly subscription fee for the software - instead it charges a per-transaction
+  processing fee on donations. Exact per-tier dollar amounts change over time and
+  are not reconciled here.
+notes: >-
+  The API is included with any product subscription at no additional fee. Verify
+  current per-product tiers, people-count thresholds, and Giving processing rates
+  on the Planning Center pricing page during reconciliation.
+sources:
+- https://www.planningcenter.com/pricing
+- https://www.planningcenter.com/developers
+- https://developer.planning.center/docs/
+plans:
+- id: pco-api-access
+  name: API Access
+  type: free
+  description: >-
+    Programmatic access to every product the account subscribes to, via Personal
+    Access Token or OAuth 2.0. No separate fee - included with the account.
+    Governed by the standard 100 requests / 20 seconds per-user rate limit.
+  entries:
+  - label: API Requests
+    name: api_requests
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free with any Planning Center account
+    userMultiplied: false
+  elements:
+  - name: All Subscribed Product APIs
+  - name: Webhooks
+  - name: OAuth and Personal Access Tokens
+- id: pco-people
+  name: People
+  type: free
+  description: >-
+    The shared people database and the People product, including the People API.
+    Free for unlimited people.
+  entries:
+  - label: People Product
+    name: people_product
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free
+    userMultiplied: false
+  elements:
+  - name: People Database
+  - name: Lists, Forms, Workflows
+  - name: People API
+- id: pco-product-subscription
+  name: Per-Product Subscription
+  type: subscription
+  description: >-
+    Services, Groups, Check-Ins, Calendar, Registrations, and Publishing are each
+    subscribed to separately. Each has a free starter tier and paid monthly tiers
+    that scale by the number of people in the account. The API for a product is
+    included with its subscription.
+  entries:
+  - label: Product Subscription
+    name: product_subscription
+    type: subscription
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: tiered monthly by people count (see pricing page)
+    userMultiplied: false
+  elements:
+  - name: Free Starter Tier
+  - name: Paid Tiers Scaling by People Count
+  - name: Product API Included
+- id: pco-giving
+  name: Giving
+  type: usage
+  description: >-
+    Giving has no monthly software subscription fee. Instead Planning Center
+    charges a per-transaction processing fee on each donation. The Giving API is
+    included at no extra cost.
+  entries:
+  - label: Donation Processing Fee
+    name: giving_processing_fee
+    type: usage
+    metric: transactions
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-transaction processing fee (see pricing page)
+    userMultiplied: false
+  elements:
+  - name: Online and Text Giving
+  - name: Giving API
+  - name: Payment Sources
+- id: pco-enterprise
+  name: Custom / Large Organization
+  type: enterprise
+  description: >-
+    Multi-site churches and large organizations can contact Planning Center for
+    volume arrangements and support. Contact sales.
+  entries:
+  - label: Custom Agreement
+    name: custom
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Volume Pricing
+  - name: Multi-Site Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

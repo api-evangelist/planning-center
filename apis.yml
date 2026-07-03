@@ -1,0 +1,255 @@
+aid: planning-center
+url: https://raw.githubusercontent.com/api-evangelist/planning-center/refs/heads/main/apis.yml
+name: Planning Center
+kind: company
+description: Planning Center is a suite of church management software products - People,
+  Services, Giving, Groups, Check-Ins, Calendar, Registrations, and Publishing -
+  used by churches to organize their people, plan worship services, process online
+  giving, run small groups, manage attendance and check-in, schedule facilities and
+  events, handle event registrations, and publish sermons. Each product exposes a
+  documented public REST API under a shared base URL (https://api.planningcenteronline.com),
+  authenticated with OAuth 2.0 or a Personal Access Token and returning data in the
+  JSON:API 1.0 format. A Webhooks API delivers create/update/destroy events across
+  the products. The APIs are free to use with a Planning Center account; each product
+  is subscribed to separately.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Church Management
+- ChMS
+- Faith
+- Giving
+- Events
+- Scheduling
+- People
+- Nonprofit
+created: '2026-07-03'
+modified: '2026-07-03'
+specificationVersion: '0.19'
+apis:
+- aid: planning-center:planning-center-people-api
+  name: Planning Center People API
+  tags:
+  - People
+  - Contacts
+  - Households
+  - Workflows
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/people
+  baseURL: https://api.planningcenteronline.com/people/v2
+  properties:
+  - url: https://developer.planning.center/docs/
+    type: Documentation
+  - url: https://developer.planning.center/docs/#/apps/people
+    type: APIReference
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: The system of record for people in a Planning Center account. Read and
+    write people, their emails, addresses, phone numbers, households, field data,
+    lists, forms, and workflows. This is the shared people directory that the other
+    products reference.
+- aid: planning-center:planning-center-services-api
+  name: Planning Center Services API
+  tags:
+  - Services
+  - Worship
+  - Plans
+  - Scheduling
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/services
+  baseURL: https://api.planningcenteronline.com/services/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/services
+    type: APIReference
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Plan and schedule worship services. Manage service types, plans and
+    their items, songs and arrangements, teams and team members, and the people
+    scheduled to serve on each plan.
+- aid: planning-center:planning-center-giving-api
+  name: Planning Center Giving API
+  tags:
+  - Giving
+  - Donations
+  - Funds
+  - Payments
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/giving
+  baseURL: https://api.planningcenteronline.com/giving/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/giving
+    type: APIReference
+  - url: https://github.com/planningcenter/developers/blob/main/guides/giving_donations_integration.md
+    type: Documentation
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Read and write online and offline giving records - donations and their
+    designations, funds, batches, payment sources, pledges, and recurring donations.
+    Push gifts from an external payment system into Giving via a registered payment
+    source.
+- aid: planning-center:planning-center-groups-api
+  name: Planning Center Groups API
+  tags:
+  - Groups
+  - Small Groups
+  - Memberships
+  - Events
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/groups
+  baseURL: https://api.planningcenteronline.com/groups/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/groups
+    type: APIReference
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Manage small groups - group types, individual groups, their memberships
+    and members, group events and attendance, tags, and enrollment. Read the group
+    directory and write membership changes.
+- aid: planning-center:planning-center-check-ins-api
+  name: Planning Center Check-Ins API
+  tags:
+  - Check-Ins
+  - Attendance
+  - Events
+  - Security
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/check-ins
+  baseURL: https://api.planningcenteronline.com/check-ins/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/check-ins
+    type: APIReference
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Read attendance and check-in data - check-ins, events and their event
+    times, locations, stations, and the people checked in. Track headcounts and
+    secure child check-in across events.
+- aid: planning-center:planning-center-calendar-api
+  name: Planning Center Calendar API
+  tags:
+  - Calendar
+  - Events
+  - Resources
+  - Scheduling
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/calendar
+  baseURL: https://api.planningcenteronline.com/calendar/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/calendar
+    type: APIReference
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Manage church calendaring and facility scheduling - events and their
+    event instances, room and equipment resources, resource requests, conflicts,
+    and tags. Read the public event feed and manage room bookings.
+- aid: planning-center:planning-center-registrations-api
+  name: Planning Center Registrations API
+  tags:
+  - Registrations
+  - Signups
+  - Events
+  - Payments
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/registrations
+  baseURL: https://api.planningcenteronline.com/registrations/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/registrations
+    type: APIReference
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Read event signups and registration data - signups (events), their
+    categories and campuses, attendees, selection types, and emergency contacts.
+    Surface live availability, times, and descriptions for public event listings.
+- aid: planning-center:planning-center-publishing-api
+  name: Planning Center Publishing API
+  tags:
+  - Publishing
+  - Sermons
+  - Media
+  - Podcasting
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/publishing
+  baseURL: https://api.planningcenteronline.com/publishing/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/publishing
+    type: APIReference
+  - url: https://www.planningcenter.com/changelog/publishing/25080772906139-new-publishing-sermons-api
+    type: Documentation
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Read-only access to published sermon content - channels, series,
+    episodes and their episode times, speakers, and speakerships. Syndicate sermon
+    media into external sites, apps, and podcast feeds.
+- aid: planning-center:planning-center-webhooks-api
+  name: Planning Center Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Notifications
+  - Integration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.planning.center/docs/#/apps/webhooks
+  baseURL: https://api.planningcenteronline.com/webhooks/v2
+  properties:
+  - url: https://developer.planning.center/docs/#/apps/webhooks
+    type: APIReference
+  - url: https://www.planningcenter.com/blog/2017/09/webhooks
+    type: Documentation
+  - url: openapi/planning-center-openapi.yml
+    type: OpenAPI
+  - url: collections/planning-center.postman_collection.json
+    type: PostmanCollection
+  - url: collections/planning-center.opencollection.json
+    type: OpenCollection
+  description: Subscribe to create, update, and destroy events across the Planning
+    Center products. Manage webhook subscriptions, browse the catalog of available
+    events, and inspect deliveries and their event payloads. Delivery is outbound
+    HTTPS POST to your endpoint - there is no public WebSocket surface.
+common:
+- type: GitHubOrganization
+  url: https://github.com/planningcenter
+- type: LinkedIn
+  url: https://www.linkedin.com/company/planning-center
+- type: Website
+  url: https://www.planningcenter.com
+- type: Documentation
+  url: https://developer.planning.center/docs/
+- type: Plans
+  url: plans/planning-center-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/planning-center-rate-limits.yml
+- type: FinOps
+  url: finops/planning-center-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

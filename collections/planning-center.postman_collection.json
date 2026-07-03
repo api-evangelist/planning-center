@@ -1,0 +1,348 @@
+{
+  "info": {
+    "name": "Planning Center API",
+    "description": "Representative Postman collection for the Planning Center suite of church management APIs - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing, and Webhooks. Shared base host: https://api.planningcenteronline.com, with per-product path prefixes (/people/v2, /services/v2, etc.). All responses are JSON:API 1.0. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A User-Agent header is required. Default rate limit is 100 requests per 20 seconds per user.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{applicationId}}", "type": "string" },
+      { "key": "password", "value": "{{secret}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.planningcenteronline.com", "type": "string" },
+    { "key": "applicationId", "value": "", "type": "string" },
+    { "key": "secret", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "People",
+      "item": [
+        {
+          "name": "List people",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/people/v2/people", "host": ["{{baseUrl}}"], "path": ["people", "v2", "people"] },
+            "description": "Lists people in the account."
+          }
+        },
+        {
+          "name": "Get a person",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/people/v2/people/:id", "host": ["{{baseUrl}}"], "path": ["people", "v2", "people", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a single person by ID."
+          }
+        },
+        {
+          "name": "Create a person",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "User-Agent", "value": "apis-io" }],
+            "body": { "mode": "raw", "raw": "{\n  \"data\": {\n    \"type\": \"Person\",\n    \"attributes\": {\n      \"first_name\": \"Jane\",\n      \"last_name\": \"Doe\"\n    }\n  }\n}" },
+            "url": { "raw": "{{baseUrl}}/people/v2/people", "host": ["{{baseUrl}}"], "path": ["people", "v2", "people"] },
+            "description": "Creates a person (JSON:API document)."
+          }
+        },
+        {
+          "name": "List emails",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/people/v2/emails", "host": ["{{baseUrl}}"], "path": ["people", "v2", "emails"] },
+            "description": "Lists email addresses across the account."
+          }
+        },
+        {
+          "name": "List households",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/people/v2/households", "host": ["{{baseUrl}}"], "path": ["people", "v2", "households"] },
+            "description": "Lists households."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "List service types",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/services/v2/service_types", "host": ["{{baseUrl}}"], "path": ["services", "v2", "service_types"] },
+            "description": "Lists service types."
+          }
+        },
+        {
+          "name": "List plans for a service type",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/services/v2/service_types/:service_type_id/plans", "host": ["{{baseUrl}}"], "path": ["services", "v2", "service_types", ":service_type_id", "plans"], "variable": [{ "key": "service_type_id", "value": "" }] },
+            "description": "Lists plans within a service type."
+          }
+        },
+        {
+          "name": "List songs",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/services/v2/songs", "host": ["{{baseUrl}}"], "path": ["services", "v2", "songs"] },
+            "description": "Lists songs."
+          }
+        },
+        {
+          "name": "List teams",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/services/v2/teams", "host": ["{{baseUrl}}"], "path": ["services", "v2", "teams"] },
+            "description": "Lists teams."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Giving",
+      "item": [
+        {
+          "name": "List donations",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/giving/v2/donations", "host": ["{{baseUrl}}"], "path": ["giving", "v2", "donations"] },
+            "description": "Lists donations."
+          }
+        },
+        {
+          "name": "Create a donation",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "User-Agent", "value": "apis-io" }],
+            "body": { "mode": "raw", "raw": "{\n  \"data\": {\n    \"type\": \"Donation\",\n    \"attributes\": {\n      \"amount_cents\": 5000,\n      \"amount_currency\": \"USD\",\n      \"received_at\": \"2026-07-03\"\n    }\n  }\n}" },
+            "url": { "raw": "{{baseUrl}}/giving/v2/donations", "host": ["{{baseUrl}}"], "path": ["giving", "v2", "donations"] },
+            "description": "Creates a donation with its designations and payment source."
+          }
+        },
+        {
+          "name": "List funds",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/giving/v2/funds", "host": ["{{baseUrl}}"], "path": ["giving", "v2", "funds"] },
+            "description": "Lists funds."
+          }
+        },
+        {
+          "name": "List batches",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/giving/v2/batches", "host": ["{{baseUrl}}"], "path": ["giving", "v2", "batches"] },
+            "description": "Lists batches."
+          }
+        },
+        {
+          "name": "List payment sources",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/giving/v2/payment_sources", "host": ["{{baseUrl}}"], "path": ["giving", "v2", "payment_sources"] },
+            "description": "Lists payment sources."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Groups",
+      "item": [
+        {
+          "name": "List groups",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/groups/v2/groups", "host": ["{{baseUrl}}"], "path": ["groups", "v2", "groups"] },
+            "description": "Lists groups."
+          }
+        },
+        {
+          "name": "List group types",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/groups/v2/group_types", "host": ["{{baseUrl}}"], "path": ["groups", "v2", "group_types"] },
+            "description": "Lists group types."
+          }
+        },
+        {
+          "name": "List memberships for a group",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/groups/v2/groups/:group_id/memberships", "host": ["{{baseUrl}}"], "path": ["groups", "v2", "groups", ":group_id", "memberships"], "variable": [{ "key": "group_id", "value": "" }] },
+            "description": "Lists members of a group."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Check-Ins",
+      "item": [
+        {
+          "name": "List check-ins",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/check-ins/v2/check_ins", "host": ["{{baseUrl}}"], "path": ["check-ins", "v2", "check_ins"] },
+            "description": "Lists check-ins."
+          }
+        },
+        {
+          "name": "List check-in events",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/check-ins/v2/events", "host": ["{{baseUrl}}"], "path": ["check-ins", "v2", "events"] },
+            "description": "Lists check-in events."
+          }
+        },
+        {
+          "name": "List locations",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/check-ins/v2/locations", "host": ["{{baseUrl}}"], "path": ["check-ins", "v2", "locations"] },
+            "description": "Lists check-in locations."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Calendar",
+      "item": [
+        {
+          "name": "List calendar events",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/calendar/v2/events", "host": ["{{baseUrl}}"], "path": ["calendar", "v2", "events"] },
+            "description": "Lists calendar events."
+          }
+        },
+        {
+          "name": "List event instances",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/calendar/v2/event_instances", "host": ["{{baseUrl}}"], "path": ["calendar", "v2", "event_instances"] },
+            "description": "Lists event instances."
+          }
+        },
+        {
+          "name": "List resources",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/calendar/v2/resources", "host": ["{{baseUrl}}"], "path": ["calendar", "v2", "resources"] },
+            "description": "Lists rooms and equipment resources."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Registrations",
+      "item": [
+        {
+          "name": "List signups",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/registrations/v2/signups", "host": ["{{baseUrl}}"], "path": ["registrations", "v2", "signups"] },
+            "description": "Lists signups (registration events)."
+          }
+        },
+        {
+          "name": "List attendees for a signup",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/registrations/v2/signups/:signup_id/attendees", "host": ["{{baseUrl}}"], "path": ["registrations", "v2", "signups", ":signup_id", "attendees"], "variable": [{ "key": "signup_id", "value": "" }] },
+            "description": "Lists attendees for a signup."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Publishing",
+      "item": [
+        {
+          "name": "List channels",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/publishing/v2/channels", "host": ["{{baseUrl}}"], "path": ["publishing", "v2", "channels"] },
+            "description": "Lists sermon channels (read-only)."
+          }
+        },
+        {
+          "name": "List episodes for a channel",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/publishing/v2/channels/:channel_id/episodes", "host": ["{{baseUrl}}"], "path": ["publishing", "v2", "channels", ":channel_id", "episodes"], "variable": [{ "key": "channel_id", "value": "" }] },
+            "description": "Lists episodes within a channel."
+          }
+        },
+        {
+          "name": "List series",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/publishing/v2/series", "host": ["{{baseUrl}}"], "path": ["publishing", "v2", "series"] },
+            "description": "Lists sermon series."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "List subscriptions",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/webhooks/v2/subscriptions", "host": ["{{baseUrl}}"], "path": ["webhooks", "v2", "subscriptions"] },
+            "description": "Lists webhook subscriptions."
+          }
+        },
+        {
+          "name": "Create a subscription",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "User-Agent", "value": "apis-io" }],
+            "body": { "mode": "raw", "raw": "{\n  \"data\": {\n    \"type\": \"Subscription\",\n    \"attributes\": {\n      \"name\": \"people.v2.events.person.created\",\n      \"url\": \"https://example.com/webhooks/pco\",\n      \"active\": true\n    }\n  }\n}" },
+            "url": { "raw": "{{baseUrl}}/webhooks/v2/subscriptions", "host": ["{{baseUrl}}"], "path": ["webhooks", "v2", "subscriptions"] },
+            "description": "Subscribes to an available event; deliveries are outbound HTTPS POST."
+          }
+        },
+        {
+          "name": "List available events",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "User-Agent", "value": "apis-io" }],
+            "url": { "raw": "{{baseUrl}}/webhooks/v2/available_events", "host": ["{{baseUrl}}"], "path": ["webhooks", "v2", "available_events"] },
+            "description": "Lists the catalog of subscribable events across products."
+          }
+        }
+      ]
+    }
+  ]
+}
