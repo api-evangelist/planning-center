@@ -1,0 +1,59 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/planning-center-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/planning-center-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.planningcenteronline.com/oauth/authorize
+    tokenUrl: https://api.planningcenteronline.com/oauth/token
+scopes:
+- scope: calendar
+  description: Access the Calendar product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: check_ins
+  description: Access the Check-Ins product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: giving
+  description: Access the Giving product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: groups
+  description: Access the Groups product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: people
+  description: Access the People product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: publishing
+  description: Access the Publishing product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: registrations
+  description: Access the Registrations product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml
+- scope: services
+  description: Access the Services product
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/planning-center-openapi.yml

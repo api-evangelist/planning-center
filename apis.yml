@@ -236,6 +236,10 @@ apis:
     events, and inspect deliveries and their event payloads. Delivery is outbound
     HTTPS POST to your endpoint - there is no public WebSocket surface.
 common:
+- type: Authentication
+  url: authentication/planning-center-authentication.yml
+- type: OAuthScopes
+  url: scopes/planning-center-scopes.yml
 - type: GitHubOrganization
   url: https://github.com/planningcenter
 - type: LinkedIn
@@ -250,6 +254,8 @@ common:
   url: rate-limits/planning-center-rate-limits.yml
 - type: FinOps
   url: finops/planning-center-finops.yml
+- url: https://www.planningcenter.com/feed
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
