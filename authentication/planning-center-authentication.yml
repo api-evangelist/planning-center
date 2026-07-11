@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/planning-center-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic auth using a Personal Access Token - application id as the username
+    and secret as the password.
+  sources:
+  - openapi/planning-center-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.planningcenteronline.com/oauth/authorize
+    tokenUrl: https://api.planningcenteronline.com/oauth/token
+    scopes: 8
+  sources:
+  - openapi/planning-center-openapi.yml

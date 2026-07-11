@@ -236,6 +236,12 @@ apis:
     events, and inspect deliveries and their event payloads. Delivery is outbound
     HTTPS POST to your endpoint - there is no public WebSocket surface.
 common:
+- type: TrustCenter
+  url: security/planning-center-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/planning-center-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/planning-center-domain-security.yml
 - type: Authentication
   url: authentication/planning-center-authentication.yml
 - type: OAuthScopes
