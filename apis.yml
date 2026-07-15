@@ -236,6 +236,8 @@ apis:
     events, and inspect deliveries and their event payloads. Delivery is outbound
     HTTPS POST to your endpoint - there is no public WebSocket surface.
 common:
+- type: AgenticAccess
+  url: agentic-access/planning-center-agentic-access.yml
 - type: TrustCenter
   url: security/planning-center-trust-center.yml
 - type: VulnerabilityDisclosure

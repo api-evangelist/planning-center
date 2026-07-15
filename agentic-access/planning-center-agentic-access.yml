@@ -1,0 +1,1240 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/planning-center-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 61
+  by_action_class:
+    connected: 51
+    acting: 10
+  by_consequence:
+    read: 51
+    write: 8
+    physical: 2
+  human_in_the_loop_required: 0
+operations:
+- path: /people/v2/people
+  method: get
+  operationId: listPeople
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/people
+  method: post
+  operationId: createPerson
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/people/{id}
+  method: get
+  operationId: getPerson
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/people/{id}
+  method: patch
+  operationId: updatePerson
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/people/{id}
+  method: delete
+  operationId: deletePerson
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/people/{id}/emails
+  method: get
+  operationId: listPersonEmails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/emails
+  method: get
+  operationId: listEmails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/addresses
+  method: get
+  operationId: listAddresses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/phone_numbers
+  method: get
+  operationId: listPhoneNumbers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/households
+  method: get
+  operationId: listHouseholds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/lists
+  method: get
+  operationId: listLists
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/field_definitions
+  method: get
+  operationId: listFieldDefinitions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/forms
+  method: get
+  operationId: listForms
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /people/v2/workflows
+  method: get
+  operationId: listWorkflows
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/service_types
+  method: get
+  operationId: listServiceTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/service_types/{service_type_id}/plans
+  method: get
+  operationId: listPlans
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/service_types/{service_type_id}/plans/{plan_id}
+  method: get
+  operationId: getPlan
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/songs
+  method: get
+  operationId: listSongs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/songs
+  method: post
+  operationId: createSong
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/teams
+  method: get
+  operationId: listTeams
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /services/v2/people
+  method: get
+  operationId: listServicesPeople
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/donations
+  method: get
+  operationId: listDonations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/donations
+  method: post
+  operationId: createDonation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/donations/{id}
+  method: get
+  operationId: getDonation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/donations/{id}/issue_refund
+  method: post
+  operationId: issueRefund
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/funds
+  method: get
+  operationId: listFunds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/batches
+  method: get
+  operationId: listBatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/batches
+  method: post
+  operationId: createBatch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/payment_sources
+  method: get
+  operationId: listPaymentSources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/recurring_donations
+  method: get
+  operationId: listRecurringDonations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /giving/v2/pledges
+  method: get
+  operationId: listPledges
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /groups/v2/groups
+  method: get
+  operationId: listGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /groups/v2/groups/{id}
+  method: get
+  operationId: getGroup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /groups/v2/group_types
+  method: get
+  operationId: listGroupTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /groups/v2/groups/{group_id}/memberships
+  method: get
+  operationId: listGroupMemberships
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /groups/v2/groups/{group_id}/memberships
+  method: post
+  operationId: createGroupMembership
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /groups/v2/events
+  method: get
+  operationId: listGroupEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /check-ins/v2/check_ins
+  method: get
+  operationId: listCheckIns
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /check-ins/v2/events
+  method: get
+  operationId: listCheckInEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /check-ins/v2/events/{event_id}/event_times
+  method: get
+  operationId: listEventTimes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /check-ins/v2/locations
+  method: get
+  operationId: listCheckInLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /check-ins/v2/stations
+  method: get
+  operationId: listStations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /calendar/v2/events
+  method: get
+  operationId: listCalendarEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /calendar/v2/event_instances
+  method: get
+  operationId: listEventInstances
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /calendar/v2/resources
+  method: get
+  operationId: listResources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /calendar/v2/resource_bookings
+  method: get
+  operationId: listResourceBookings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /calendar/v2/conflicts
+  method: get
+  operationId: listConflicts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /registrations/v2/signups
+  method: get
+  operationId: listSignups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /registrations/v2/signups/{signup_id}/attendees
+  method: get
+  operationId: listAttendees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /registrations/v2/categories
+  method: get
+  operationId: listCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /registrations/v2/campuses
+  method: get
+  operationId: listCampuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /publishing/v2/channels
+  method: get
+  operationId: listChannels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /publishing/v2/channels/{channel_id}/episodes
+  method: get
+  operationId: listEpisodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /publishing/v2/series
+  method: get
+  operationId: listSeries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /publishing/v2/speakers
+  method: get
+  operationId: listSpeakers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /webhooks/v2/subscriptions
+  method: get
+  operationId: listWebhookSubscriptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /webhooks/v2/subscriptions
+  method: post
+  operationId: createWebhookSubscription
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /webhooks/v2/subscriptions/{id}
+  method: get
+  operationId: getWebhookSubscription
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /webhooks/v2/subscriptions/{id}
+  method: delete
+  operationId: deleteWebhookSubscription
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /webhooks/v2/available_events
+  method: get
+  operationId: listAvailableEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
+- path: /webhooks/v2/subscriptions/{subscription_id}/events
+  method: get
+  operationId: listWebhookDeliveries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - calendar
+    - check_ins
+    - giving
+    - groups
+    - people
+    - publishing
+    - registrations
+    - services
