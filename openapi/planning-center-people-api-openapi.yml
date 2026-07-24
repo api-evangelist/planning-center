@@ -1,0 +1,361 @@
+openapi: 3.0.3
+info:
+  title: Planning Center Calendar People API
+  description: 'A representative OpenAPI description of the Planning Center suite of church management APIs. Planning Center exposes a documented public REST API for each of its products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing - plus a cross-product Webhooks API, all under the shared base host https://api.planningcenteronline.com. Every product is versioned under its own path prefix (for example /people/v2, /services/v2, /giving/v2). All responses conform to the JSON:API 1.0 specification: resource objects are wrapped in a top-level `data` member (an object or an array), each with `id`, `type`, `attributes`, and `relationships`, and collections support `include`, `where[]` filtering, `order`, and offset-based pagination via `per_page` and `offset`. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A `User-Agent` header is required on every request.
+
+    Endpoint coverage: the resource collections and base paths modeled here are grounded in Planning Center''s published documentation. Individual method/path combinations are a representative CRUD-shaped subset; consult the live API reference at developer.planning.center for the authoritative, exhaustive list and per-resource attributes.'
+  version: '2.0'
+  contact:
+    name: Planning Center Developers
+    url: https://developer.planning.center/docs/
+  license:
+    name: Proprietary
+    url: https://www.planningcenter.com/terms
+servers:
+- url: https://api.planningcenteronline.com
+  description: Planning Center API (all products)
+security:
+- basicAuth: []
+- oauth2:
+  - people
+  - services
+  - giving
+  - groups
+  - check_ins
+  - calendar
+  - registrations
+  - publishing
+tags:
+- name: People
+  description: People, households, contact info, lists, forms, and workflows.
+paths:
+  /people/v2/people:
+    get:
+      operationId: listPeople
+      tags:
+      - People
+      summary: List people
+      description: Lists people in the account. Supports include, where[] filters, order, and offset pagination.
+      parameters:
+      - $ref: '#/components/parameters/PerPage'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    post:
+      operationId: createPerson
+      tags:
+      - People
+      summary: Create a person
+      requestBody:
+        $ref: '#/components/requestBodies/JsonApiBody'
+      responses:
+        '201':
+          $ref: '#/components/responses/Resource'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /people/v2/people/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getPerson
+      tags:
+      - People
+      summary: Get a person
+      responses:
+        '200':
+          $ref: '#/components/responses/Resource'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updatePerson
+      tags:
+      - People
+      summary: Update a person
+      requestBody:
+        $ref: '#/components/requestBodies/JsonApiBody'
+      responses:
+        '200':
+          $ref: '#/components/responses/Resource'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+    delete:
+      operationId: deletePerson
+      tags:
+      - People
+      summary: Delete a person
+      responses:
+        '204':
+          description: Deleted.
+  /people/v2/people/{id}/emails:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: listPersonEmails
+      tags:
+      - People
+      summary: List a person's emails
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/emails:
+    get:
+      operationId: listEmails
+      tags:
+      - People
+      summary: List email addresses
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/addresses:
+    get:
+      operationId: listAddresses
+      tags:
+      - People
+      summary: List addresses
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/phone_numbers:
+    get:
+      operationId: listPhoneNumbers
+      tags:
+      - People
+      summary: List phone numbers
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/households:
+    get:
+      operationId: listHouseholds
+      tags:
+      - People
+      summary: List households
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/lists:
+    get:
+      operationId: listLists
+      tags:
+      - People
+      summary: List people lists
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/field_definitions:
+    get:
+      operationId: listFieldDefinitions
+      tags:
+      - People
+      summary: List custom field definitions
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/forms:
+    get:
+      operationId: listForms
+      tags:
+      - People
+      summary: List forms
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+  /people/v2/workflows:
+    get:
+      operationId: listWorkflows
+      tags:
+      - People
+      summary: List workflows
+      responses:
+        '200':
+          $ref: '#/components/responses/Collection'
+components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The resource ID.
+    Include:
+      name: include
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Comma-separated list of related resources to sideload (JSON:API include).
+    Offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 0
+      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 25
+        maximum: 100
+      description: Number of records per page (JSON:API pagination).
+  schemas:
+    JsonApiErrorDocument:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+    JsonApiResource:
+      type: object
+      description: A JSON:API resource object.
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        relationships:
+          type: object
+          additionalProperties: true
+        links:
+          type: object
+          additionalProperties: true
+    JsonApiCollectionDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+        meta:
+          type: object
+          properties:
+            total_count:
+              type: integer
+            count:
+              type: integer
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+            next:
+              type: string
+    JsonApiResourceDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+  responses:
+    Resource:
+      description: A single JSON:API resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
+    Unauthorized:
+      description: Missing or invalid credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    RateLimited:
+      description: Rate limit exceeded (100 requests per 20 seconds per user).
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-PCO-API-Request-Rate-Limit:
+          schema:
+            type: integer
+        X-PCO-API-Request-Rate-Period:
+          schema:
+            type: integer
+        X-PCO-API-Request-Rate-Count:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    UnprocessableEntity:
+      description: Validation failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+  requestBodies:
+    JsonApiBody:
+      required: true
+      description: A JSON:API single-resource document.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic auth using a Personal Access Token - application id as the username and secret as the password.
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.planningcenteronline.com/oauth/authorize
+          tokenUrl: https://api.planningcenteronline.com/oauth/token
+          scopes:
+            people: Access the People product
+            services: Access the Services product
+            giving: Access the Giving product
+            groups: Access the Groups product
+            check_ins: Access the Check-Ins product
+            calendar: Access the Calendar product
+            registrations: Access the Registrations product
+            publishing: Access the Publishing product
