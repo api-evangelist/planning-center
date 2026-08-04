@@ -1,0 +1,30 @@
+{
+  "provider": "planning-center",
+  "sources": [
+    "planning-center-calendar-api-openapi.yml",
+    "planning-center-check-ins-api-openapi.yml",
+    "planning-center-giving-api-openapi.yml",
+    "planning-center-groups-api-openapi.yml",
+    "planning-center-people-api-openapi.yml",
+    "planning-center-publishing-api-openapi.yml",
+    "planning-center-registrations-api-openapi.yml",
+    "planning-center-services-api-openapi.yml",
+    "planning-center-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "planning-center-calendar-api-openapi.yml",
+    "planning-center-check-ins-api-openapi.yml",
+    "planning-center-giving-api-openapi.yml",
+    "planning-center-groups-api-openapi.yml",
+    "planning-center-people-api-openapi.yml",
+    "planning-center-publishing-api-openapi.yml",
+    "planning-center-registrations-api-openapi.yml",
+    "planning-center-services-api-openapi.yml",
+    "planning-center-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
