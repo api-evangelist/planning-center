@@ -1,0 +1,590 @@
+{
+  "item": [
+    {
+      "id": "75da5279-ad44-4fd6-9633-a3130aae508c",
+      "name": "Groups",
+      "description": {
+        "content": "Small groups, memberships, and group events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dedeb947-54e0-4372-a607-6ff036f2d16d",
+          "name": "List groups",
+          "request": {
+            "name": "List groups",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                "v2",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "411de31e-7b2e-408c-8108-268697239bc9",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    "v2",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 7072,\n        \"key_1\": 1148.351890374264\n      },\n      \"relationships\": {\n        \"key_0\": 2394.103247101994\n      },\n      \"links\": {\n        \"key_0\": 1189.3629255560002\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 9182,\n        \"key_1\": 6235\n      },\n      \"relationships\": {\n        \"key_0\": 8929,\n        \"key_1\": false\n      },\n      \"links\": {\n        \"key_0\": 7706.6466129123255,\n        \"key_1\": 1689.6896184593456,\n        \"key_2\": true\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": 8958.066436325933,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 9359.1086447871\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 1070,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": false\n      },\n      \"relationships\": {\n        \"key_0\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": false,\n        \"key_1\": 2426\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 8768,\n    \"count\": 8119\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95170b93-4ba4-4ee3-bd80-f89f420b29f3",
+          "name": "Get a group",
+          "request": {
+            "name": "Get a group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                "v2",
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "015d5720-2535-4f60-86f4-117ff349d6db",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    "v2",
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"type\": \"string\",\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": 4621.497897546397\n    },\n    \"relationships\": {\n      \"key_0\": 3325.1269852959163,\n      \"key_1\": true,\n      \"key_2\": 4213\n    },\n    \"links\": {\n      \"key_0\": 8365.34043034383\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": true\n      },\n      \"relationships\": {\n        \"key_0\": 5773.608006823672,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 484.8548358350657\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 8608,\n        \"key_1\": 4237.975013165791\n      },\n      \"relationships\": {\n        \"key_0\": 8562\n      },\n      \"links\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a6c073f-b9af-4beb-915b-56abe59d6687",
+          "name": "List group types",
+          "request": {
+            "name": "List group types",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                "v2",
+                "group_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "305cdef5-5a6f-414f-9b74-bf2fecc25e43",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    "v2",
+                    "group_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 9515.02050223863,\n        \"key_1\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": false,\n        \"key_2\": false,\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 705.0437305044577\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 3852.5737125287005\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": true,\n        \"key_2\": true\n      },\n      \"links\": {\n        \"key_0\": 1221,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 8276\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 9492.816134011988,\n        \"key_1\": 597.2967860636014\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": 8004,\n        \"key_2\": \"string\",\n        \"key_3\": 8908\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 9679,\n        \"key_1\": true,\n        \"key_2\": true,\n        \"key_3\": true\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 664,\n    \"count\": 6873\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b6e34df-f637-4877-bf0d-bb7141141a53",
+          "name": "List memberships for a group",
+          "request": {
+            "name": "List memberships for a group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                "v2",
+                "groups",
+                ":group_id",
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d671f48-a001-48f5-9f68-789e8c58793b",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    "v2",
+                    "groups",
+                    ":group_id",
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 9515.02050223863,\n        \"key_1\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": false,\n        \"key_2\": false,\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 705.0437305044577\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 3852.5737125287005\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": true,\n        \"key_2\": true\n      },\n      \"links\": {\n        \"key_0\": 1221,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 8276\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 9492.816134011988,\n        \"key_1\": 597.2967860636014\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": 8004,\n        \"key_2\": \"string\",\n        \"key_3\": 8908\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 9679,\n        \"key_1\": true,\n        \"key_2\": true,\n        \"key_3\": true\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 664,\n    \"count\": 6873\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "721f828e-0e8e-432d-978e-072203be9fca",
+          "name": "Add a member to a group",
+          "request": {
+            "name": "Add a member to a group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                "v2",
+                "groups",
+                ":group_id",
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": 8987,\n      \"key_1\": 6643,\n      \"key_2\": true,\n      \"key_3\": true\n    },\n    \"relationships\": {\n      \"key_0\": false\n    },\n    \"links\": {\n      \"key_0\": true,\n      \"key_1\": true,\n      \"key_2\": 8535.645787055055\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": false,\n        \"key_1\": true\n      },\n      \"relationships\": {\n        \"key_0\": 5497.687066593638\n      },\n      \"links\": {\n        \"key_0\": 3999.6839032699318,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5932.020954012526,\n        \"key_1\": false\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": 2214.8880357081925\n      },\n      \"links\": {\n        \"key_0\": false\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "68cb95a8-f07c-4617-88cf-b088ef02be98",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    "v2",
+                    "groups",
+                    ":group_id",
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 927.9621903616453\n    },\n    \"relationships\": {\n      \"key_0\": 8834.388664470724,\n      \"key_1\": 2840\n    },\n    \"links\": {\n      \"key_0\": 6926,\n      \"key_1\": 2413.8112140039416\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5577.330203842203\n      },\n      \"relationships\": {\n        \"key_0\": false\n      },\n      \"links\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 772\n      },\n      \"relationships\": {\n        \"key_0\": 3650,\n        \"key_1\": 7811.524089708154\n      },\n      \"links\": {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3227317-5f87-4746-b96f-299498ddee4f",
+          "name": "List group events",
+          "request": {
+            "name": "List group events",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                "v2",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e8a9406-e4a4-4a40-8d3e-de2d15d4ff9c",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    "v2",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 3742,\n        \"key_1\": 7750,\n        \"key_2\": 1574.9817486304285\n      },\n      \"relationships\": {\n        \"key_0\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 2895,\n        \"key_1\": 6302\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 9139.244562717564,\n        \"key_1\": \"string\",\n        \"key_2\": 8080\n      },\n      \"relationships\": {\n        \"key_0\": 648.3698963650808,\n        \"key_1\": 2637,\n        \"key_2\": true,\n        \"key_3\": true,\n        \"key_4\": 1993\n      },\n      \"links\": {\n        \"key_0\": 7954.898695252168,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 2366.529474186253\n      },\n      \"relationships\": {\n        \"key_0\": 2356,\n        \"key_1\": 613.6954231949909\n      },\n      \"links\": {\n        \"key_0\": 5176,\n        \"key_1\": true\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 2884,\n        \"key_1\": 3773\n      },\n      \"relationships\": {\n        \"key_0\": 3791,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 6049\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 1645,\n    \"count\": 7988\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.planningcenteronline.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c795cf35-d642-4b1d-9887-81535e7d9493",
+    "name": "Planning Center Calendar Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A representative OpenAPI description of the Planning Center suite of church management APIs. Planning Center exposes a documented public REST API for each of its products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing - plus a cross-product Webhooks API, all under the shared base host https://api.planningcenteronline.com. Every product is versioned under its own path prefix (for example /people/v2, /services/v2, /giving/v2). All responses conform to the JSON:API 1.0 specification: resource objects are wrapped in a top-level `data` member (an object or an array), each with `id`, `type`, `attributes`, and `relationships`, and collections support `include`, `where[]` filtering, `order`, and offset-based pagination via `per_page` and `offset`. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A `User-Agent` header is required on every request.\nEndpoint coverage: the resource collections and base paths modeled here are grounded in Planning Center's published documentation. Individual method/path combinations are a representative CRUD-shaped subset; consult the live API reference at developer.planning.center for the authoritative, exhaustive list and per-resource attributes.\n\nContact Support:\n Name: Planning Center Developers",
+      "type": "text/plain"
+    }
+  }
+}

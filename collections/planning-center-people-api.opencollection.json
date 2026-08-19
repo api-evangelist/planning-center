@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar People API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List people",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/people",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page (JSON:API pagination)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to sideload (JSON:API include)."
+              }
+            ]
+          },
+          "docs": "Lists people in the account. Supports include, where[] filters, order, and offset pagination."
+        },
+        {
+          "info": {
+            "name": "Create a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/people/v2/people",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a person"
+        },
+        {
+          "info": {
+            "name": "Get a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ]
+          },
+          "docs": "Get a person"
+        },
+        {
+          "info": {
+            "name": "Update a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.planningcenteronline.com/people/v2/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a person"
+        },
+        {
+          "info": {
+            "name": "Delete a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.planningcenteronline.com/people/v2/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ]
+          },
+          "docs": "Delete a person"
+        },
+        {
+          "info": {
+            "name": "List a person's emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/people/:id/emails",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ]
+          },
+          "docs": "List a person's emails"
+        },
+        {
+          "info": {
+            "name": "List email addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/emails"
+          },
+          "docs": "List email addresses"
+        },
+        {
+          "info": {
+            "name": "List addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/addresses"
+          },
+          "docs": "List addresses"
+        },
+        {
+          "info": {
+            "name": "List phone numbers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/phone_numbers"
+          },
+          "docs": "List phone numbers"
+        },
+        {
+          "info": {
+            "name": "List households",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/households"
+          },
+          "docs": "List households"
+        },
+        {
+          "info": {
+            "name": "List people lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/lists"
+          },
+          "docs": "List people lists"
+        },
+        {
+          "info": {
+            "name": "List custom field definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/field_definitions"
+          },
+          "docs": "List custom field definitions"
+        },
+        {
+          "info": {
+            "name": "List forms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/forms"
+          },
+          "docs": "List forms"
+        },
+        {
+          "info": {
+            "name": "List workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/people/v2/workflows"
+          },
+          "docs": "List workflows"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

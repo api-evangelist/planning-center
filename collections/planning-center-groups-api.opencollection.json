@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar Groups API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/groups/v2/groups"
+          },
+          "docs": "List groups"
+        },
+        {
+          "info": {
+            "name": "Get a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/groups/v2/groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ]
+          },
+          "docs": "Get a group"
+        },
+        {
+          "info": {
+            "name": "List group types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/groups/v2/group_types"
+          },
+          "docs": "List group types"
+        },
+        {
+          "info": {
+            "name": "List memberships for a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/groups/v2/groups/:group_id/memberships",
+            "params": [
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List memberships for a group"
+        },
+        {
+          "info": {
+            "name": "Add a member to a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/groups/v2/groups/:group_id/memberships",
+            "params": [
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a member to a group"
+        },
+        {
+          "info": {
+            "name": "List group events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/groups/v2/events"
+          },
+          "docs": "List group events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

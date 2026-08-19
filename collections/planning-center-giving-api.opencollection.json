@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar Giving API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Giving",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List donations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/donations"
+          },
+          "docs": "List donations"
+        },
+        {
+          "info": {
+            "name": "Create a donation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/giving/v2/donations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a donation, including its designations to one or more funds and a payment source."
+        },
+        {
+          "info": {
+            "name": "Get a donation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/donations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ]
+          },
+          "docs": "Get a donation"
+        },
+        {
+          "info": {
+            "name": "Issue a refund for a donation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/giving/v2/donations/:id/issue_refund",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The resource ID."
+              }
+            ]
+          },
+          "docs": "Issue a refund for a donation"
+        },
+        {
+          "info": {
+            "name": "List funds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/funds"
+          },
+          "docs": "List funds"
+        },
+        {
+          "info": {
+            "name": "List batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/batches"
+          },
+          "docs": "List batches"
+        },
+        {
+          "info": {
+            "name": "Create a batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/giving/v2/batches",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a batch"
+        },
+        {
+          "info": {
+            "name": "List payment sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/payment_sources"
+          },
+          "docs": "List payment sources"
+        },
+        {
+          "info": {
+            "name": "List recurring donations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/recurring_donations"
+          },
+          "docs": "List recurring donations"
+        },
+        {
+          "info": {
+            "name": "List pledges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/giving/v2/pledges"
+          },
+          "docs": "List pledges"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

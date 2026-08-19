@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar Services API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List service types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/service_types"
+          },
+          "docs": "List service types"
+        },
+        {
+          "info": {
+            "name": "List plans for a service type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/service_types/:service_type_id/plans",
+            "params": [
+              {
+                "name": "service_type_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List plans for a service type"
+        },
+        {
+          "info": {
+            "name": "Get a plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/service_types/:service_type_id/plans/:plan_id",
+            "params": [
+              {
+                "name": "service_type_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "plan_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a plan"
+        },
+        {
+          "info": {
+            "name": "List songs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/songs"
+          },
+          "docs": "List songs"
+        },
+        {
+          "info": {
+            "name": "Create a song",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.planningcenteronline.com/services/v2/songs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a song"
+        },
+        {
+          "info": {
+            "name": "List teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/teams"
+          },
+          "docs": "List teams"
+        },
+        {
+          "info": {
+            "name": "List people in Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/services/v2/people"
+          },
+          "docs": "List people in Services"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar Publishing API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Publishing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/publishing/v2/channels"
+          },
+          "docs": "List channels"
+        },
+        {
+          "info": {
+            "name": "List episodes for a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/publishing/v2/channels/:channel_id/episodes",
+            "params": [
+              {
+                "name": "channel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List episodes for a channel"
+        },
+        {
+          "info": {
+            "name": "List series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/publishing/v2/series"
+          },
+          "docs": "List series"
+        },
+        {
+          "info": {
+            "name": "List speakers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/publishing/v2/speakers"
+          },
+          "docs": "List speakers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar Registrations API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Registrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List signups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/registrations/v2/signups"
+          },
+          "docs": "List signups"
+        },
+        {
+          "info": {
+            "name": "List attendees for a signup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/registrations/v2/signups/:signup_id/attendees",
+            "params": [
+              {
+                "name": "signup_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List attendees for a signup"
+        },
+        {
+          "info": {
+            "name": "List categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/registrations/v2/categories"
+          },
+          "docs": "List categories"
+        },
+        {
+          "info": {
+            "name": "List campuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/registrations/v2/campuses"
+          },
+          "docs": "List campuses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

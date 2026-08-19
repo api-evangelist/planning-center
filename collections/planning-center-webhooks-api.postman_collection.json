@@ -1,0 +1,581 @@
+{
+  "item": [
+    {
+      "id": "0582844c-2fe6-4bca-84dc-8a69f52179f1",
+      "name": "Webhooks",
+      "description": {
+        "content": "Cross-product event subscriptions and deliveries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2f3ba1a-5a32-4fd1-a0d5-8d2fc358ea7a",
+          "name": "List webhook subscriptions",
+          "request": {
+            "name": "List webhook subscriptions",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks",
+                "v2",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "862ad758-caa6-4136-a27a-0767be4b27e5",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "v2",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": false,\n        \"key_1\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": 9493\n      },\n      \"links\": {\n        \"key_0\": \"string\",\n        \"key_1\": true,\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 5534,\n        \"key_1\": 7091,\n        \"key_2\": 99.90708614406097\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": 5012,\n        \"key_2\": true,\n        \"key_3\": 9913\n      },\n      \"links\": {\n        \"key_0\": 4487.537253353301,\n        \"key_1\": 3950.407532014004\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": false,\n        \"key_1\": 8561.574923163334,\n        \"key_2\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": 5071,\n        \"key_1\": \"string\",\n        \"key_2\": 9671\n      },\n      \"links\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 8652,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      \"relationships\": {\n        \"key_0\": false\n      },\n      \"links\": {\n        \"key_0\": 6927.319762813975,\n        \"key_1\": true\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 5259,\n    \"count\": 9635\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb293e44-887d-43ca-82cd-7f10969de3d4",
+          "name": "Create a webhook subscription",
+          "request": {
+            "name": "Create a webhook subscription",
+            "description": {
+              "content": "Subscribe to an available event. Deliveries are outbound HTTPS POST to the subscription URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                "v2",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": true,\n      \"key_1\": 9368,\n      \"key_2\": 8107.948554341866\n    },\n    \"relationships\": {\n      \"key_0\": 4226.568906062564\n    },\n    \"links\": {\n      \"key_0\": true,\n      \"key_1\": 8272\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 2132\n      },\n      \"relationships\": {\n        \"key_0\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 410.09109827174206,\n        \"key_1\": true\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8876\n      },\n      \"relationships\": {\n        \"key_0\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 4653.14439790805\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b14fcd15-b4d5-4a2f-8723-07e43248bdb7",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "v2",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 2758.7422541198157\n    },\n    \"relationships\": {\n      \"key_0\": \"string\",\n      \"key_1\": 8383.365769936578\n    },\n    \"links\": {\n      \"key_0\": 8786.955016252956\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 1881.8929022606435\n      },\n      \"relationships\": {\n        \"key_0\": 7200\n      },\n      \"links\": {\n        \"key_0\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4771,\n        \"key_1\": 6417,\n        \"key_2\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": 5463.726859672017\n      },\n      \"links\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3d05144-b14c-485c-88ac-605fcc6a3c53",
+          "name": "Get a webhook subscription",
+          "request": {
+            "name": "Get a webhook subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks",
+                "v2",
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b63f2ef-3be6-4875-a623-1e54b8a6b70a",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "v2",
+                    "subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 2758.7422541198157\n    },\n    \"relationships\": {\n      \"key_0\": \"string\",\n      \"key_1\": 8383.365769936578\n    },\n    \"links\": {\n      \"key_0\": 8786.955016252956\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 1881.8929022606435\n      },\n      \"relationships\": {\n        \"key_0\": 7200\n      },\n      \"links\": {\n        \"key_0\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4771,\n        \"key_1\": 6417,\n        \"key_2\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": 5463.726859672017\n      },\n      \"links\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "184b61f2-4009-4084-8405-0ffd36674831",
+          "name": "Delete a webhook subscription",
+          "request": {
+            "name": "Delete a webhook subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks",
+                "v2",
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66a1d234-33e6-4860-a742-bf220b19af57",
+              "name": "Deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "v2",
+                    "subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9261ff64-0e67-4c3b-8254-6f6c5d8a398f",
+          "name": "List available webhook events",
+          "request": {
+            "name": "List available webhook events",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks",
+                "v2",
+                "available_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7df8e0ff-5c1f-4789-857a-f2f22f6870d8",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "v2",
+                    "available_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": false\n      },\n      \"links\": {\n        \"key_0\": 359.70878989024845,\n        \"key_1\": 1225.4790371655777\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 7589,\n        \"key_1\": 6453.155357194568\n      },\n      \"relationships\": {\n        \"key_0\": 7479.482092549507,\n        \"key_1\": 8384.049336421902,\n        \"key_2\": 4376.527203033053\n      },\n      \"links\": {\n        \"key_0\": 6612.290106722619,\n        \"key_1\": 5931,\n        \"key_2\": 25,\n        \"key_3\": 4283.80769101818\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      },\n      \"links\": {\n        \"key_0\": 1863,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": true\n      },\n      \"relationships\": {\n        \"key_0\": 5883\n      },\n      \"links\": {\n        \"key_0\": false\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 2849,\n    \"count\": 6544\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e927ae2-f827-4779-9a02-57db76d61781",
+          "name": "List delivered events for a subscription",
+          "request": {
+            "name": "List delivered events for a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks",
+                "v2",
+                "subscriptions",
+                ":subscription_id",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72cbe4a5-0315-41de-aeb8-d9f108bf18d8",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    "v2",
+                    "subscriptions",
+                    ":subscription_id",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": false\n      },\n      \"links\": {\n        \"key_0\": 359.70878989024845,\n        \"key_1\": 1225.4790371655777\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 7589,\n        \"key_1\": 6453.155357194568\n      },\n      \"relationships\": {\n        \"key_0\": 7479.482092549507,\n        \"key_1\": 8384.049336421902,\n        \"key_2\": 4376.527203033053\n      },\n      \"links\": {\n        \"key_0\": 6612.290106722619,\n        \"key_1\": 5931,\n        \"key_2\": 25,\n        \"key_3\": 4283.80769101818\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      },\n      \"links\": {\n        \"key_0\": 1863,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": true\n      },\n      \"relationships\": {\n        \"key_0\": 5883\n      },\n      \"links\": {\n        \"key_0\": false\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 2849,\n    \"count\": 6544\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.planningcenteronline.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "46ca84fe-07df-4edd-9294-1db0871a9455",
+    "name": "Planning Center Calendar Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A representative OpenAPI description of the Planning Center suite of church management APIs. Planning Center exposes a documented public REST API for each of its products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing - plus a cross-product Webhooks API, all under the shared base host https://api.planningcenteronline.com. Every product is versioned under its own path prefix (for example /people/v2, /services/v2, /giving/v2). All responses conform to the JSON:API 1.0 specification: resource objects are wrapped in a top-level `data` member (an object or an array), each with `id`, `type`, `attributes`, and `relationships`, and collections support `include`, `where[]` filtering, `order`, and offset-based pagination via `per_page` and `offset`. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A `User-Agent` header is required on every request.\nEndpoint coverage: the resource collections and base paths modeled here are grounded in Planning Center's published documentation. Individual method/path combinations are a representative CRUD-shaped subset; consult the live API reference at developer.planning.center for the authoritative, exhaustive list and per-resource attributes.\n\nContact Support:\n Name: Planning Center Developers",
+      "type": "text/plain"
+    }
+  }
+}

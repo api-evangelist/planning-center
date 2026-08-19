@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calendar",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List calendar events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/calendar/v2/events"
+          },
+          "docs": "List calendar events"
+        },
+        {
+          "info": {
+            "name": "List event instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/calendar/v2/event_instances"
+          },
+          "docs": "List event instances"
+        },
+        {
+          "info": {
+            "name": "List resources (rooms and equipment)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/calendar/v2/resources"
+          },
+          "docs": "List resources (rooms and equipment)"
+        },
+        {
+          "info": {
+            "name": "List resource bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/calendar/v2/resource_bookings"
+          },
+          "docs": "List resource bookings"
+        },
+        {
+          "info": {
+            "name": "List scheduling conflicts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/calendar/v2/conflicts"
+          },
+          "docs": "List scheduling conflicts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

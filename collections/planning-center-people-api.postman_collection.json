@@ -1,0 +1,1614 @@
+{
+  "item": [
+    {
+      "id": "7d233143-0a48-4db3-a575-e07f5a5bc884",
+      "name": "People",
+      "description": {
+        "content": "People, households, contact info, lists, forms, and workflows.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3c8a36f-1657-4160-b4f7-fe9b62eca87c",
+          "name": "List people",
+          "request": {
+            "name": "List people",
+            "description": {
+              "content": "Lists people in the account. Supports include, where[] filters, order, and offset pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "25",
+                  "description": "Number of records per page (JSON:API pagination)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to sideload (JSON:API include)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "368933de-767b-4fd4-b617-d1e63bbcac20",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 1538.0432968580526,\n        \"key_1\": 8860.821197921188,\n        \"key_2\": 6942,\n        \"key_3\": 2127\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": 1058.6397800163504\n      },\n      \"links\": {\n        \"key_0\": 458,\n        \"key_1\": \"string\",\n        \"key_2\": 5152.864453315339\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 2922.7241898919187\n      },\n      \"relationships\": {\n        \"key_0\": 562,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": true,\n        \"key_1\": \"string\",\n        \"key_2\": 12.527693796138273\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": 3358.751208119174,\n        \"key_1\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": false\n      },\n      \"links\": {\n        \"key_0\": 8424.830574804999,\n        \"key_1\": false\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": 351,\n        \"key_2\": 4292.851205325693,\n        \"key_3\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5068\n      },\n      \"links\": {\n        \"key_0\": 8052.198846737875\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 1860,\n    \"count\": 9730\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c66f2717-dc31-443c-be27-9a8a541f3e07",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b04c7a95-86fd-4489-9321-7df475432b75",
+              "name": "Rate limit exceeded (100 requests per 20 seconds per user).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "7627"
+                },
+                {
+                  "disabled": false,
+                  "key": "X-PCO-API-Request-Rate-Limit",
+                  "value": "7627",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-PCO-API-Request-Rate-Period",
+                  "value": "7627",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-PCO-API-Request-Rate-Count",
+                  "value": "7627",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "161ff82b-1633-4ff7-b25b-477259dcd609",
+          "name": "Create a person",
+          "request": {
+            "name": "Create a person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": 8740\n    },\n    \"relationships\": {\n      \"key_0\": 6549.933957652306\n    },\n    \"links\": {\n      \"key_0\": 3825.7989529565994,\n      \"key_1\": \"string\"\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": 1000\n      },\n      \"links\": {\n        \"key_0\": true\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": true\n      },\n      \"relationships\": {\n        \"key_0\": 1670\n      },\n      \"links\": {\n        \"key_0\": true\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9256874-ba53-4dd8-af90-d3136f19b709",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": true\n    },\n    \"relationships\": {\n      \"key_0\": \"string\"\n    },\n    \"links\": {\n      \"key_0\": 2002.0790774983554,\n      \"key_1\": false,\n      \"key_2\": \"string\"\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8614.18480948954\n      },\n      \"relationships\": {\n        \"key_0\": 9910.965225309412,\n        \"key_1\": \"string\",\n        \"key_2\": 3656.592602159763,\n        \"key_3\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": 8030.481607402996,\n        \"key_2\": 9224,\n        \"key_3\": 7364.6838701645775\n      },\n      \"links\": {\n        \"key_0\": 9311,\n        \"key_1\": 9297\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffa2a973-a739-47ae-8c92-af45f7263b35",
+              "name": "Missing or invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "796186b3-7cf7-466e-a4bd-8f0f558687b5",
+              "name": "Validation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4a4a4a1-59a6-4433-a829-a4c53f9531a2",
+          "name": "Get a person",
+          "request": {
+            "name": "Get a person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c71fd23-b9b1-4d3a-baa5-bf74911515fa",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": true\n    },\n    \"relationships\": {\n      \"key_0\": \"string\"\n    },\n    \"links\": {\n      \"key_0\": 2002.0790774983554,\n      \"key_1\": false,\n      \"key_2\": \"string\"\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8614.18480948954\n      },\n      \"relationships\": {\n        \"key_0\": 9910.965225309412,\n        \"key_1\": \"string\",\n        \"key_2\": 3656.592602159763,\n        \"key_3\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": 8030.481607402996,\n        \"key_2\": 9224,\n        \"key_3\": 7364.6838701645775\n      },\n      \"links\": {\n        \"key_0\": 9311,\n        \"key_1\": 9297\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e233e604-655f-4a17-9847-732cc9e28356",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a019628b-f741-482b-ae09-e31fe7e4056b",
+          "name": "Update a person",
+          "request": {
+            "name": "Update a person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": true,\n      \"key_1\": 8980\n    },\n    \"relationships\": {\n      \"key_0\": 297.20197942962545,\n      \"key_1\": 7039,\n      \"key_2\": 1629.3805921004046,\n      \"key_3\": false\n    },\n    \"links\": {\n      \"key_0\": \"string\"\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 1759.3284764755379,\n        \"key_1\": 7109.81437315591\n      },\n      \"relationships\": {\n        \"key_0\": 7883.137812914632\n      },\n      \"links\": {\n        \"key_0\": 3174\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": 559.5998217663367\n      },\n      \"links\": {\n        \"key_0\": 9205.203616473878\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e0a6d8c-dd13-4600-b77c-0b14de3d511a",
+              "name": "A single JSON:API resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": true\n    },\n    \"relationships\": {\n      \"key_0\": \"string\"\n    },\n    \"links\": {\n      \"key_0\": 2002.0790774983554,\n      \"key_1\": false,\n      \"key_2\": \"string\"\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8614.18480948954\n      },\n      \"relationships\": {\n        \"key_0\": 9910.965225309412,\n        \"key_1\": \"string\",\n        \"key_2\": 3656.592602159763,\n        \"key_3\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      \"relationships\": {\n        \"key_0\": false,\n        \"key_1\": 8030.481607402996,\n        \"key_2\": 9224,\n        \"key_3\": 7364.6838701645775\n      },\n      \"links\": {\n        \"key_0\": 9311,\n        \"key_1\": 9297\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a3abfe1-b335-44b7-995b-fe888b1dfb8a",
+              "name": "Validation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c640827-4f10-41a4-ae5f-0991423efef3",
+          "name": "Delete a person",
+          "request": {
+            "name": "Delete a person",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "people",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "946d855c-5078-42ce-8143-ff58c26becca",
+              "name": "Deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2cdabdc-e247-4d46-9196-65020fd7612f",
+          "name": "List a person's emails",
+          "request": {
+            "name": "List a person's emails",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "people",
+                ":id",
+                "emails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de112d9f-bea1-4209-b9ce-fea92d7ece07",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "people",
+                    ":id",
+                    "emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29cc2de5-e6df-47f1-936e-1e44c1d34071",
+          "name": "List email addresses",
+          "request": {
+            "name": "List email addresses",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "emails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a920c83-b9de-431c-90b4-e16f1dc30bbc",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d44449ca-aef1-45bb-8765-6d147054716e",
+          "name": "List addresses",
+          "request": {
+            "name": "List addresses",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af1f30c3-52fb-441c-af61-de7657cca9c6",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4e4336f-50bf-4abc-98c8-fccdf9007368",
+          "name": "List phone numbers",
+          "request": {
+            "name": "List phone numbers",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "phone_numbers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55bb8a9b-8d44-4d63-a181-85f666ac9001",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "phone_numbers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4edca5c6-7347-4f2d-a157-eecf62bb49b2",
+          "name": "List households",
+          "request": {
+            "name": "List households",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "households"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e98a8abb-36fc-4d25-9847-3b0806a3764b",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "households"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1984160-ae87-4ab5-a156-6511b923733f",
+          "name": "List people lists",
+          "request": {
+            "name": "List people lists",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "lists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b713c73e-cba1-422a-ab7d-4b0f4b592bd7",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85a5086f-a531-4fc3-aeec-dced06a19147",
+          "name": "List custom field definitions",
+          "request": {
+            "name": "List custom field definitions",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "field_definitions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09fdd8d6-7ef9-4467-a79f-c7757d5df79b",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "field_definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a1ffaa6-5e39-4c6b-b1f3-0ba55250f1ce",
+          "name": "List forms",
+          "request": {
+            "name": "List forms",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "forms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "281a6ddd-ed04-4edb-85fb-6367d103d2a2",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0c81194-3dfd-4cbf-8735-76019f1412dd",
+          "name": "List workflows",
+          "request": {
+            "name": "List workflows",
+            "description": {},
+            "url": {
+              "path": [
+                "people",
+                "v2",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f4474b5-5d7a-4d50-9426-0b522a9501a4",
+              "name": "A JSON:API collection of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people",
+                    "v2",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"relationships\": {\n        \"key_0\": true\n      },\n      \"links\": {\n        \"key_0\": 4413,\n        \"key_1\": 6186\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 4769\n      },\n      \"relationships\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 8329.816219337903,\n        \"key_1\": false\n      }\n    }\n  ],\n  \"included\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 8027.983182562236\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 3203.247639748521,\n        \"key_1\": 6758,\n        \"key_2\": false\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": 5863.541659669822\n      },\n      \"relationships\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"links\": {\n        \"key_0\": 7732.265629212043\n      }\n    }\n  ],\n  \"meta\": {\n    \"total_count\": 244,\n    \"count\": 8458\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"next\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.planningcenteronline.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f254845f-4770-4376-a5ae-f2a09b7af7e7",
+    "name": "Planning Center Calendar People API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A representative OpenAPI description of the Planning Center suite of church management APIs. Planning Center exposes a documented public REST API for each of its products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing - plus a cross-product Webhooks API, all under the shared base host https://api.planningcenteronline.com. Every product is versioned under its own path prefix (for example /people/v2, /services/v2, /giving/v2). All responses conform to the JSON:API 1.0 specification: resource objects are wrapped in a top-level `data` member (an object or an array), each with `id`, `type`, `attributes`, and `relationships`, and collections support `include`, `where[]` filtering, `order`, and offset-based pagination via `per_page` and `offset`. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A `User-Agent` header is required on every request.\nEndpoint coverage: the resource collections and base paths modeled here are grounded in Planning Center's published documentation. Individual method/path combinations are a representative CRUD-shaped subset; consult the live API reference at developer.planning.center for the authoritative, exhaustive list and per-resource attributes.\n\nContact Support:\n Name: Planning Center Developers",
+      "type": "text/plain"
+    }
+  }
+}

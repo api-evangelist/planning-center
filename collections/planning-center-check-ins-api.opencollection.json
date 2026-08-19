@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Planning Center Calendar Check-Ins API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Check-Ins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List check-ins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/check-ins/v2/check_ins"
+          },
+          "docs": "List check-ins"
+        },
+        {
+          "info": {
+            "name": "List check-in events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/check-ins/v2/events"
+          },
+          "docs": "List check-in events"
+        },
+        {
+          "info": {
+            "name": "List event times for an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/check-ins/v2/events/:event_id/event_times",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List event times for an event"
+        },
+        {
+          "info": {
+            "name": "List check-in locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/check-ins/v2/locations"
+          },
+          "docs": "List check-in locations"
+        },
+        {
+          "info": {
+            "name": "List stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.planningcenteronline.com/check-ins/v2/stations"
+          },
+          "docs": "List stations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
