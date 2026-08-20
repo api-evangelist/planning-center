@@ -31,6 +31,15 @@ tags:
 - ChMS
 - Faith
 - Giving
+- Event
+- Scheduling
+- People
+- Non-Profit
+tags_raw:
+- Church Management
+- ChMS
+- Faith
+- Giving
 - Events
 - Scheduling
 - People
@@ -87,6 +96,8 @@ apis:
   humanURL: https://developer.planning.center/docs/#/apps/people
   baseURL: https://api.planningcenteronline.com/people/v2
   tags:
+  - Check-ins
+  tags_raw:
   - Check-Ins
   properties:
   - type: OpenAPI
@@ -171,6 +182,8 @@ apis:
   humanURL: https://developer.planning.center/docs/#/apps/people
   baseURL: https://api.planningcenteronline.com/people/v2
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -381,6 +394,8 @@ apis:
   humanURL: https://developer.planning.center/docs/#/apps/people
   baseURL: https://api.planningcenteronline.com/people/v2
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
