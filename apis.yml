@@ -12,6 +12,18 @@ description: Planning Center is a suite of church management software products -
   JSON:API 1.0 format. A Webhooks API delivers create/update/destroy events across
   the products. The APIs are free to use with a Planning Center account; each product
   is subscribed to separately.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
