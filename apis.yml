@@ -108,7 +108,7 @@ apis:
   humanURL: https://developer.planning.center/docs/#/apps/people
   baseURL: https://api.planningcenteronline.com/people/v2
   tags:
-  - Check-ins
+  - Check-Ins
   tags_raw:
   - Check-Ins
   properties:
