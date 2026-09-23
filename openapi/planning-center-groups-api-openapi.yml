@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Planning Center Calendar Groups API
-  description: 'A representative OpenAPI description of the Planning Center suite of church management APIs. Planning Center exposes a documented public REST API for each of its products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing - plus a cross-product Webhooks API, all under the shared base host https://api.planningcenteronline.com. Every product is versioned under its own path prefix (for example /people/v2, /services/v2, /giving/v2). All responses conform to the JSON:API 1.0 specification: resource objects are wrapped in a top-level `data` member (an object or an array), each with `id`, `type`, `attributes`, and `relationships`, and collections support `include`, `where[]` filtering, `order`, and offset-based pagination via `per_page` and `offset`. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A `User-Agent` header is required on every request.
-
-    Endpoint coverage: the resource collections and base paths modeled here are grounded in Planning Center''s published documentation. Individual method/path combinations are a representative CRUD-shaped subset; consult the live API reference at developer.planning.center for the authoritative, exhaustive list and per-resource attributes.'
+  title: Planning Center Groups API
+  description: A representative OpenAPI description of the Planning Center suite of church management APIs.
   version: '2.0'
   contact:
     name: Planning Center Developers
@@ -93,6 +91,27 @@ paths:
         '200':
           $ref: '#/components/responses/Collection'
 components:
+  responses:
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
+    Resource:
+      description: A single JSON:API resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+  requestBodies:
+    JsonApiBody:
+      required: true
+      description: A JSON:API single-resource document.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
   parameters:
     Id:
       name: id
@@ -102,23 +121,6 @@ components:
         type: string
       description: The resource ID.
   schemas:
-    JsonApiResource:
-      type: object
-      description: A JSON:API resource object.
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        attributes:
-          type: object
-          additionalProperties: true
-        relationships:
-          type: object
-          additionalProperties: true
-        links:
-          type: object
-          additionalProperties: true
     JsonApiCollectionDocument:
       type: object
       required:
@@ -157,27 +159,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JsonApiResource'
-  responses:
-    Resource:
-      description: A single JSON:API resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
-    Collection:
-      description: A JSON:API collection of resources.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiCollectionDocument'
-  requestBodies:
-    JsonApiBody:
-      required: true
-      description: A JSON:API single-resource document.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
+    JsonApiResource:
+      type: object
+      description: A JSON:API resource object.
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        relationships:
+          type: object
+          additionalProperties: true
+        links:
+          type: object
+          additionalProperties: true
   securitySchemes:
     basicAuth:
       type: http

@@ -1,15 +1,7 @@
 {
   "provider": "planning-center",
   "sources": [
-    "planning-center-calendar-api-openapi.yml",
-    "planning-center-check-ins-api-openapi.yml",
-    "planning-center-giving-api-openapi.yml",
-    "planning-center-groups-api-openapi.yml",
-    "planning-center-people-api-openapi.yml",
-    "planning-center-publishing-api-openapi.yml",
-    "planning-center-registrations-api-openapi.yml",
-    "planning-center-services-api-openapi.yml",
-    "planning-center-webhooks-api-openapi.yml"
+    "_original/planning-center-openapi.yml"
   ],
   "outputs": [
     "planning-center-calendar-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "planning-center-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "planning-center-calendar-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-check-ins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-giving-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-people-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-publishing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-registrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "planning-center-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

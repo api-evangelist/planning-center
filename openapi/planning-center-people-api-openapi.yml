@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Planning Center Calendar People API
-  description: 'A representative OpenAPI description of the Planning Center suite of church management APIs. Planning Center exposes a documented public REST API for each of its products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, Publishing - plus a cross-product Webhooks API, all under the shared base host https://api.planningcenteronline.com. Every product is versioned under its own path prefix (for example /people/v2, /services/v2, /giving/v2). All responses conform to the JSON:API 1.0 specification: resource objects are wrapped in a top-level `data` member (an object or an array), each with `id`, `type`, `attributes`, and `relationships`, and collections support `include`, `where[]` filtering, `order`, and offset-based pagination via `per_page` and `offset`. Authenticate with HTTP Basic using a Personal Access Token (application id / secret) or with an OAuth 2.0 bearer token. A `User-Agent` header is required on every request.
-
-    Endpoint coverage: the resource collections and base paths modeled here are grounded in Planning Center''s published documentation. Individual method/path combinations are a representative CRUD-shaped subset; consult the live API reference at developer.planning.center for the authoritative, exhaustive list and per-resource attributes.'
+  title: Planning Center People API
+  description: A representative OpenAPI description of the Planning Center suite of church management APIs.
   version: '2.0'
   contact:
     name: Planning Center Developers
@@ -178,39 +176,45 @@ paths:
         '200':
           $ref: '#/components/responses/Collection'
 components:
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: The resource ID.
-    Include:
-      name: include
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Comma-separated list of related resources to sideload (JSON:API include).
-    Offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        default: 0
-      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      schema:
-        type: integer
-        default: 25
-        maximum: 100
-      description: Number of records per page (JSON:API pagination).
   schemas:
+    JsonApiResourceDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+    JsonApiCollectionDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+        meta:
+          type: object
+          properties:
+            total_count:
+              type: integer
+            count:
+              type: integer
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+            next:
+              type: string
     JsonApiErrorDocument:
       type: object
       properties:
@@ -242,69 +246,53 @@ components:
         links:
           type: object
           additionalProperties: true
-    JsonApiCollectionDocument:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-        included:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-        meta:
-          type: object
-          properties:
-            total_count:
-              type: integer
-            count:
-              type: integer
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-            next:
-              type: string
-    JsonApiResourceDocument:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/JsonApiResource'
-        included:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-  responses:
-    Resource:
-      description: A single JSON:API resource.
+  requestBodies:
+    JsonApiBody:
+      required: true
+      description: A JSON:API single-resource document.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiResourceDocument'
+  parameters:
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 25
+        maximum: 100
+      description: Number of records per page (JSON:API pagination).
+    Include:
+      name: include
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Comma-separated list of related resources to sideload (JSON:API include).
+    Offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 0
+      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The resource ID.
+  responses:
     Collection:
       description: A JSON:API collection of resources.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiCollectionDocument'
-    Unauthorized:
-      description: Missing or invalid credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiErrorDocument'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiErrorDocument'
     RateLimited:
       description: Rate limit exceeded (100 requests per 20 seconds per user).
       headers:
@@ -325,20 +313,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiErrorDocument'
+    Unauthorized:
+      description: Missing or invalid credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    Resource:
+      description: A single JSON:API resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
     UnprocessableEntity:
       description: Validation failed.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiErrorDocument'
-  requestBodies:
-    JsonApiBody:
-      required: true
-      description: A JSON:API single-resource document.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
   securitySchemes:
     basicAuth:
       type: http
