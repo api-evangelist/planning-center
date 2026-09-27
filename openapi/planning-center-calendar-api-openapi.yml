@@ -73,13 +73,6 @@ paths:
         '200':
           $ref: '#/components/responses/Collection'
 components:
-  responses:
-    Collection:
-      description: A JSON:API collection of resources.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiCollectionDocument'
   schemas:
     JsonApiCollectionDocument:
       type: object
@@ -125,6 +118,13 @@ components:
         links:
           type: object
           additionalProperties: true
+  responses:
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
   securitySchemes:
     basicAuth:
       type: http

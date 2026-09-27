@@ -128,41 +128,67 @@ paths:
           $ref: '#/components/responses/Collection'
 components:
   responses:
-    Collection:
-      description: A JSON:API collection of resources.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiCollectionDocument'
     Resource:
       description: A single JSON:API resource.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiResourceDocument'
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
     UnprocessableEntity:
       description: Validation failed.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiErrorDocument'
-  requestBodies:
-    JsonApiBody:
-      required: true
-      description: A JSON:API single-resource document.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: The resource ID.
   schemas:
+    JsonApiResource:
+      type: object
+      description: A JSON:API resource object.
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        relationships:
+          type: object
+          additionalProperties: true
+        links:
+          type: object
+          additionalProperties: true
+    JsonApiResourceDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+    JsonApiErrorDocument:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
     JsonApiCollectionDocument:
       type: object
       required:
@@ -190,48 +216,22 @@ components:
               type: string
             next:
               type: string
-    JsonApiErrorDocument:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              status:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-    JsonApiResourceDocument:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/JsonApiResource'
-        included:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-    JsonApiResource:
-      type: object
-      description: A JSON:API resource object.
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        attributes:
-          type: object
-          additionalProperties: true
-        relationships:
-          type: object
-          additionalProperties: true
-        links:
-          type: object
-          additionalProperties: true
+  requestBodies:
+    JsonApiBody:
+      required: true
+      description: A JSON:API single-resource document.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The resource ID.
   securitySchemes:
     basicAuth:
       type: http
