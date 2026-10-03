@@ -109,48 +109,7 @@ paths:
         '200':
           $ref: '#/components/responses/Collection'
 components:
-  responses:
-    Resource:
-      description: A single JSON:API resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
-    Collection:
-      description: A JSON:API collection of resources.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiCollectionDocument'
   schemas:
-    JsonApiResource:
-      type: object
-      description: A JSON:API resource object.
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        attributes:
-          type: object
-          additionalProperties: true
-        relationships:
-          type: object
-          additionalProperties: true
-        links:
-          type: object
-          additionalProperties: true
-    JsonApiResourceDocument:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/JsonApiResource'
-        included:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
     JsonApiCollectionDocument:
       type: object
       required:
@@ -178,10 +137,51 @@ components:
               type: string
             next:
               type: string
+    JsonApiResourceDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+    JsonApiResource:
+      type: object
+      description: A JSON:API resource object.
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        relationships:
+          type: object
+          additionalProperties: true
+        links:
+          type: object
+          additionalProperties: true
   requestBodies:
     JsonApiBody:
       required: true
       description: A JSON:API single-resource document.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+  responses:
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
+    Resource:
+      description: A single JSON:API resource.
       content:
         application/json:
           schema:

@@ -176,100 +176,7 @@ paths:
         '200':
           $ref: '#/components/responses/Collection'
 components:
-  responses:
-    Resource:
-      description: A single JSON:API resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
-    RateLimited:
-      description: Rate limit exceeded (100 requests per 20 seconds per user).
-      headers:
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-        X-PCO-API-Request-Rate-Limit:
-          schema:
-            type: integer
-        X-PCO-API-Request-Rate-Period:
-          schema:
-            type: integer
-        X-PCO-API-Request-Rate-Count:
-          schema:
-            type: integer
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiErrorDocument'
-    Collection:
-      description: A JSON:API collection of resources.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiCollectionDocument'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiErrorDocument'
-    UnprocessableEntity:
-      description: Validation failed.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiErrorDocument'
-    Unauthorized:
-      description: Missing or invalid credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiErrorDocument'
   schemas:
-    JsonApiResource:
-      type: object
-      description: A JSON:API resource object.
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        attributes:
-          type: object
-          additionalProperties: true
-        relationships:
-          type: object
-          additionalProperties: true
-        links:
-          type: object
-          additionalProperties: true
-    JsonApiResourceDocument:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          $ref: '#/components/schemas/JsonApiResource'
-        included:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-    JsonApiErrorDocument:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              status:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
     JsonApiCollectionDocument:
       type: object
       required:
@@ -297,15 +204,64 @@ components:
               type: string
             next:
               type: string
-  requestBodies:
-    JsonApiBody:
-      required: true
-      description: A JSON:API single-resource document.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
+    JsonApiErrorDocument:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+    JsonApiResourceDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+    JsonApiResource:
+      type: object
+      description: A JSON:API resource object.
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        relationships:
+          type: object
+          additionalProperties: true
+        links:
+          type: object
+          additionalProperties: true
   parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The resource ID.
+    Offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 0
+      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
     Include:
       name: include
       in: query
@@ -322,21 +278,65 @@ components:
         default: 25
         maximum: 100
       description: Number of records per page (JSON:API pagination).
-    Id:
-      name: id
-      in: path
+  requestBodies:
+    JsonApiBody:
       required: true
-      schema:
-        type: string
-      description: The resource ID.
-    Offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        default: 0
-      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
+      description: A JSON:API single-resource document.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    UnprocessableEntity:
+      description: Validation failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    Unauthorized:
+      description: Missing or invalid credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
+    Resource:
+      description: A single JSON:API resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+    RateLimited:
+      description: Rate limit exceeded (100 requests per 20 seconds per user).
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-PCO-API-Request-Rate-Limit:
+          schema:
+            type: integer
+        X-PCO-API-Request-Rate-Period:
+          schema:
+            type: integer
+        X-PCO-API-Request-Rate-Count:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiErrorDocument'
   securitySchemes:
     basicAuth:
       type: http
