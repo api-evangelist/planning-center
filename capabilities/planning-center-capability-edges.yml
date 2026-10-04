@@ -1,0 +1,38 @@
+slug: planning-center
+provider: Planning Center
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Webhooks
+  spec_file: planning-center-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.8
+  evidence: POST /webhooks/v2/subscriptions  createWebhookSubscription  Create a webhook subscription;
+    GET /webhooks/v2/available_events  listAvailableEvents; GET /webhooks/v2/subscriptions/{subscription_id}/events  listWebhookDeliveries  List
+    delivered events for a subscription
+  reason: The surface is the full lifecycle of outbound webhook subscriptions plus an event catalogue
+    and delivery log, which is exactly BC-4270.80 Webhook & Event Subscription Management within the vendor's
+    developer platform. Some residual risk that this is judged pure plumbing rather than a business capability.
+- tag: People
+  spec_file: planning-center-people-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /people/v2/people  createPerson  Create a person ... listHouseholds  List households
+    ... listFieldDefinitions  List custom field definitions
+  reason: Full CRUD over person records with emails, addresses, phone numbers, households, lists and custom
+    fields is a constituent master-record store, i.e. customer/contact data management. 0.7 because it
+    could equally be framed as master data management (BC-610.20).

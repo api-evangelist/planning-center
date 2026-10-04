@@ -445,6 +445,9 @@ apis:
   - type: Documentation
     url: https://www.planningcenter.com/blog/2017/09/webhooks
 common:
+- type: CapabilityMap
+  url: capabilities/planning-center-capability-edges.yml
+  name: Planning Center Business Capability Map
 - type: AgenticAccess
   url: agentic-access/planning-center-agentic-access.yml
 - type: TrustCenter
