@@ -92,33 +92,6 @@ paths:
           $ref: '#/components/responses/Collection'
 components:
   schemas:
-    JsonApiCollectionDocument:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-        included:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
-        meta:
-          type: object
-          properties:
-            total_count:
-              type: integer
-            count:
-              type: integer
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-            next:
-              type: string
     JsonApiResourceDocument:
       type: object
       required:
@@ -147,23 +120,50 @@ components:
         links:
           type: object
           additionalProperties: true
-  requestBodies:
-    JsonApiBody:
-      required: true
-      description: A JSON:API single-resource document.
+    JsonApiCollectionDocument:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+        included:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
+        meta:
+          type: object
+          properties:
+            total_count:
+              type: integer
+            count:
+              type: integer
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+            next:
+              type: string
+  responses:
+    Resource:
+      description: A single JSON:API resource.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiResourceDocument'
-  responses:
     Collection:
       description: A JSON:API collection of resources.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiCollectionDocument'
-    Resource:
-      description: A single JSON:API resource.
+  requestBodies:
+    JsonApiBody:
+      required: true
+      description: A JSON:API single-resource document.
       content:
         application/json:
           schema:
