@@ -177,8 +177,8 @@ paths:
           $ref: '#/components/responses/Collection'
 components:
   responses:
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: Missing or invalid credentials.
       content:
         application/json:
           schema:
@@ -189,24 +189,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiErrorDocument'
-    Unauthorized:
-      description: Missing or invalid credentials.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiErrorDocument'
-    Resource:
-      description: A single JSON:API resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiResourceDocument'
-    Collection:
-      description: A JSON:API collection of resources.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/JsonApiCollectionDocument'
     RateLimited:
       description: Rate limit exceeded (100 requests per 20 seconds per user).
       headers:
@@ -227,50 +215,46 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/JsonApiErrorDocument'
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: The resource ID.
-    Include:
-      name: include
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Comma-separated list of related resources to sideload (JSON:API include).
-    Offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        default: 0
-      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      schema:
-        type: integer
-        default: 25
-        maximum: 100
-      description: Number of records per page (JSON:API pagination).
+    Resource:
+      description: A single JSON:API resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiResourceDocument'
+    Collection:
+      description: A JSON:API collection of resources.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiCollectionDocument'
   schemas:
-    JsonApiResourceDocument:
+    JsonApiCollectionDocument:
       type: object
       required:
       - data
       properties:
         data:
-          $ref: '#/components/schemas/JsonApiResource'
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiResource'
         included:
           type: array
           items:
             $ref: '#/components/schemas/JsonApiResource'
+        meta:
+          type: object
+          properties:
+            total_count:
+              type: integer
+            count:
+              type: integer
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+            next:
+              type: string
     JsonApiResource:
       type: object
       description: A JSON:API resource object.
@@ -302,33 +286,49 @@ components:
                 type: string
               detail:
                 type: string
-    JsonApiCollectionDocument:
+    JsonApiResourceDocument:
       type: object
       required:
       - data
       properties:
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/JsonApiResource'
+          $ref: '#/components/schemas/JsonApiResource'
         included:
           type: array
           items:
             $ref: '#/components/schemas/JsonApiResource'
-        meta:
-          type: object
-          properties:
-            total_count:
-              type: integer
-            count:
-              type: integer
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-            next:
-              type: string
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The resource ID.
+    Include:
+      name: include
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Comma-separated list of related resources to sideload (JSON:API include).
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 25
+        maximum: 100
+      description: Number of records per page (JSON:API pagination).
+    Offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 0
+      description: Zero-based offset for pagination. Offsets above 30,000 are subject to a stricter rate limit.
   requestBodies:
     JsonApiBody:
       required: true
