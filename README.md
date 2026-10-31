@@ -1,4 +1,4 @@
-# Planning Center (planning-center)
+# Planning Center
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,243 +64,142 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Planning Center is a suite of church management software products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, and Publishing - used by churches to organize their people, plan worship services, process online giving, run small groups, manage attendance and check-in, schedule facilities and events, handle event registrations, and publish sermons. Each product exposes a documented public REST API under a shared base host (`https://api.planningcenteronline.com`), authenticated with OAuth 2.0 or a Personal Access Token and returning data in the JSON:API 1.0 format. A Webhooks API delivers create/update/destroy events across the products. The APIs are free to use with a Planning Center account; each product is subscribed to separately.
+Planning Center is a suite of church management software products - People, Services, Giving, Groups, Check-Ins, Calendar, Registrations, and Publishing - used by churches to organize their people, plan worship services, process online giving, run small groups, manage attendance and check-in, schedule facilities and events, handle event registrations, and publish sermons. Each product exposes a documented public REST API under a shared base URL (https://api.planningcenteronline.com), authenticated with OAuth 2.0 or a Personal Access Token and returning data in the JSON:API 1.0 format. A Webhooks API delivers create/update/destroy events across the products. The APIs are free to use with a Planning Center account; each product is subscribed to separately.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/planning-center/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/planning-center/refs/heads/main/apis.yml)
+**Areas:** Church Management · ChMS · Faith · Giving · Event · Scheduling · People · Non-Profit
 
-## Tags
+## Planning Center on APIs.io
 
-- Church Management
-- ChMS
-- Faith
-- Giving
-- Events
-- Scheduling
-- People
-- Nonprofit
+Everything profiled for Planning Center is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/planning-center/](https://apis.io/providers/planning-center/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-07-03
-- **Modified:** 2026-07-03
+- [Planning Center Calendar API](https://apis.io/apis/planning-center/planning-center-calendar-api/) — Church calendaring, events, and facility resources.
+- [Planning Center Check-Ins API](https://apis.io/apis/planning-center/planning-center-check-ins-api/) — Attendance, events, locations, and stations.
+- [Planning Center Giving API](https://apis.io/apis/planning-center/planning-center-giving-api/) — Donations, funds, batches, payment sources, and pledges.
+- [Planning Center Groups API](https://apis.io/apis/planning-center/planning-center-groups-api/) — Small groups, memberships, and group events.
+- [Planning Center People API](https://apis.io/apis/planning-center/planning-center-people-api/) — People, households, contact info, lists, forms, and workflows.
+- [Planning Center Publishing API](https://apis.io/apis/planning-center/planning-center-publishing-api/) — Sermon channels, series, episodes, and speakers (read-only).
+- [Planning Center Registrations API](https://apis.io/apis/planning-center/planning-center-registrations-api/) — Event signups, attendees, categories, and campuses.
+- [Planning Center Services API](https://apis.io/apis/planning-center/planning-center-services-api/) — Service planning - service types, plans, songs, teams.
+- [Planning Center Webhooks API](https://apis.io/apis/planning-center/planning-center-webhooks-api/) — Cross-product event subscriptions and deliveries.
 
-## APIs
+### Published properties
 
-### Planning Center People API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The system of record for people in a Planning Center account. Read and write people, their emails, addresses, phone numbers, households, field data, lists, forms, and workflows. This is the shared people directory that the other products reference.
+#### Agentic access (1)
 
-- **Human URL:** [https://developer.planning.center/docs/#/apps/people](https://developer.planning.center/docs/#/apps/people)
-- **Base URL:** `https://api.planningcenteronline.com/people/v2`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Planning Center Agentic Access](https://apis.io/agentic-access/planning-center/planning-center-agentic-access/)
 
-- People
-- Contacts
-- Households
-- Workflows
+#### Collections (10)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://developer.planning.center/docs/)
-- [API Reference](https://developer.planning.center/docs/#/apps/people)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Planning Center API](https://apis.io/collections/planning-center/open-planning-center/)
+- [Planning Center Calendar API](https://apis.io/collections/planning-center/open-planning-center-calendar-api/)
+- [Planning Center Calendar Check-Ins API](https://apis.io/collections/planning-center/open-planning-center-check-ins-api/)
+- [Planning Center Calendar Giving API](https://apis.io/collections/planning-center/open-planning-center-giving-api/)
+- [Planning Center Calendar Groups API](https://apis.io/collections/planning-center/open-planning-center-groups-api/)
+- [Planning Center Calendar People API](https://apis.io/collections/planning-center/open-planning-center-people-api/)
+- [Planning Center Calendar Publishing API](https://apis.io/collections/planning-center/open-planning-center-publishing-api/)
+- [Planning Center Calendar Registrations API](https://apis.io/collections/planning-center/open-planning-center-registrations-api/)
+- [Planning Center Calendar Services API](https://apis.io/collections/planning-center/open-planning-center-services-api/)
+- [Planning Center Calendar Webhooks API](https://apis.io/collections/planning-center/open-planning-center-webhooks-api/)
 
-### Planning Center Services API
+#### Security (4)
 
-Plan and schedule worship services. Manage service types, plans and their items, songs and arrangements, teams and team members, and the people scheduled to serve on each plan.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://developer.planning.center/docs/#/apps/services](https://developer.planning.center/docs/#/apps/services)
-- **Base URL:** `https://api.planningcenteronline.com/services/v2`
+- [Planning Center Authentication](https://apis.io/security/planning-center/planning-center-authentication/)
+- [Planning Center Domain Security](https://apis.io/security/planning-center/planning-center-domain-security/)
+- [Planning Center Trust Center](https://apis.io/security/planning-center/planning-center-trust-center/)
+- [Planning Center Vulnerability Disclosure](https://apis.io/security/planning-center/planning-center-vulnerability-disclosure/)
 
-#### Tags
+#### OAuth scopes (1)
 
-- Services
-- Worship
-- Plans
-- Scheduling
+The permissions the API asks for.
 
-#### Properties
+- [Planning Center Scopes](https://apis.io/scopes/planning-center/planning-center-scopes/)
 
-- [API Reference](https://developer.planning.center/docs/#/apps/services)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Planning Center Giving API
+Published plans, tiers and prices.
 
-Read and write online and offline giving records - donations and their designations, funds, batches, payment sources, pledges, and recurring donations. Push gifts from an external payment system into Giving via a registered payment source.
+- [Planning Center Plans Pricing](https://apis.io/plans/planning-center/planning-center-plans-pricing/)
 
-- **Human URL:** [https://developer.planning.center/docs/#/apps/giving](https://developer.planning.center/docs/#/apps/giving)
-- **Base URL:** `https://api.planningcenteronline.com/giving/v2`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Giving
-- Donations
-- Funds
-- Payments
+- [Planning Center Rate Limits](https://apis.io/rate-limits/planning-center/planning-center-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [API Reference](https://developer.planning.center/docs/#/apps/giving)
-- [Documentation](https://github.com/planningcenter/developers/blob/main/guides/giving_donations_integration.md)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Planning Center Groups API
+- [Planning Center Finops](https://apis.io/finops/planning-center/planning-center-finops/)
 
-Manage small groups - group types, individual groups, their memberships and members, group events and attendance, tags, and enrollment. Read the group directory and write membership changes.
+## Where to find this API
 
-- **Human URL:** [https://developer.planning.center/docs/#/apps/groups](https://developer.planning.center/docs/#/apps/groups)
-- **Base URL:** `https://api.planningcenteronline.com/groups/v2`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Groups
-- Small Groups
-- Memberships
-- Events
-
-#### Properties
-
-- [API Reference](https://developer.planning.center/docs/#/apps/groups)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Planning Center Check-Ins API
-
-Read attendance and check-in data - check-ins, events and their event times, locations, stations, and the people checked in. Track headcounts and secure child check-in across events.
-
-- **Human URL:** [https://developer.planning.center/docs/#/apps/check-ins](https://developer.planning.center/docs/#/apps/check-ins)
-- **Base URL:** `https://api.planningcenteronline.com/check-ins/v2`
-
-#### Tags
-
-- Check-Ins
-- Attendance
-- Events
-- Security
-
-#### Properties
-
-- [API Reference](https://developer.planning.center/docs/#/apps/check-ins)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Planning Center Calendar API
-
-Manage church calendaring and facility scheduling - events and their event instances, room and equipment resources, resource requests, conflicts, and tags. Read the public event feed and manage room bookings.
-
-- **Human URL:** [https://developer.planning.center/docs/#/apps/calendar](https://developer.planning.center/docs/#/apps/calendar)
-- **Base URL:** `https://api.planningcenteronline.com/calendar/v2`
-
-#### Tags
-
-- Calendar
-- Events
-- Resources
-- Scheduling
-
-#### Properties
-
-- [API Reference](https://developer.planning.center/docs/#/apps/calendar)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Planning Center Registrations API
-
-Read event signups and registration data - signups (events), their categories and campuses, attendees, selection types, and emergency contacts. Surface live availability, times, and descriptions for public event listings.
-
-- **Human URL:** [https://developer.planning.center/docs/#/apps/registrations](https://developer.planning.center/docs/#/apps/registrations)
-- **Base URL:** `https://api.planningcenteronline.com/registrations/v2`
-
-#### Tags
-
-- Registrations
-- Signups
-- Events
-- Payments
-
-#### Properties
-
-- [API Reference](https://developer.planning.center/docs/#/apps/registrations)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Planning Center Publishing API
-
-Read-only access to published sermon content - channels, series, episodes and their episode times, speakers, and speakerships. Syndicate sermon media into external sites, apps, and podcast feeds.
-
-- **Human URL:** [https://developer.planning.center/docs/#/apps/publishing](https://developer.planning.center/docs/#/apps/publishing)
-- **Base URL:** `https://api.planningcenteronline.com/publishing/v2`
-
-#### Tags
-
-- Publishing
-- Sermons
-- Media
-- Podcasting
-
-#### Properties
-
-- [API Reference](https://developer.planning.center/docs/#/apps/publishing)
-- [Documentation](https://www.planningcenter.com/changelog/publishing/25080772906139-new-publishing-sermons-api)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Planning Center Webhooks API
-
-Subscribe to create, update, and destroy events across the Planning Center products. Manage webhook subscriptions, browse the catalog of available events, and inspect deliveries and their event payloads. Delivery is outbound HTTPS POST to your endpoint - there is no public WebSocket surface.
-
-- **Human URL:** [https://developer.planning.center/docs/#/apps/webhooks](https://developer.planning.center/docs/#/apps/webhooks)
-- **Base URL:** `https://api.planningcenteronline.com/webhooks/v2`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-- Integration
-
-#### Properties
-
-- [API Reference](https://developer.planning.center/docs/#/apps/webhooks)
-- [Documentation](https://www.planningcenter.com/blog/2017/09/webhooks)
-- [OpenAPI](openapi/planning-center-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/planning-center.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/planning-center.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/planningcenter)
-- [LinkedIn](https://www.linkedin.com/company/planning-center)
 - [Website](https://www.planningcenter.com)
 - [Documentation](https://developer.planning.center/docs/)
-- [Plans](plans/planning-center-plans-pricing.yml)
-- [Rate Limits](rate-limits/planning-center-rate-limits.yml)
-- [Fin Ops](finops/planning-center-finops.yml)
+- [Blog](https://www.planningcenter.com/feed)
+- [GitHub](https://github.com/planningcenter)
 
-## Authentication
+## API Evangelist rating
 
-- **Personal Access Token** — HTTP Basic auth with an application id (username) and secret (password), for single-account scripts.
-- **OAuth 2.0** — authorization code flow (PKCE recommended, OpenID Connect supported) for multi-organization apps. Authorize at `https://api.planningcenteronline.com/oauth/authorize`, token at `https://api.planningcenteronline.com/oauth/token`. Per-product scopes: `people`, `services`, `giving`, `groups`, `check_ins`, `calendar`, `registrations`, `publishing`.
+**Kin Score 30.6** — thin · rubric 0.24.0 · scored 2026-10-17
 
-All requests require a `User-Agent` header. Responses conform to the JSON:API 1.0 specification.
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 15.8 |
 
-## Rate Limits
+**Agent readiness 29.1** — agent-ready
 
-Default 100 requests per 20 seconds per authenticated user (75 per 20 seconds for requests with an offset above 30,000). Exceeding the limit returns HTTP 429 with a `Retry-After` header; every response carries `X-PCO-API-Request-Rate-Limit`, `X-PCO-API-Request-Rate-Period`, and `X-PCO-API-Request-Rate-Count`.
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-## Maintainers
+**Regulatory alignment 32.4** — Horizontal (data, software, accessibility, platform)
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/planning-center/](https://apis.io/providers/planning-center/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Planning Center: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/planning-center/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
